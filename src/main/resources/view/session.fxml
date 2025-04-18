@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: white; -fx-background-radius: 20 0 0 0; -fx-border-radius: 20 0 0 0; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthcarecenter.controller.SessionController">
+   <children>
+      <Label layoutX="82.0" layoutY="29.0" prefHeight="43.0" prefWidth="298.0" text="THERAPY SESSION">
+         <font>
+            <Font name="Bauhaus 93" size="37.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSessionId" layoutX="80.0" layoutY="112.0" text="SESSION ID">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font></Label>
+      <TextField fx:id="txtSessionId" layoutX="242.0" layoutY="108.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #07f0d8;" />
+      <Label fx:id="lblProgramId" layoutX="80.0" layoutY="155.0" text="PROGRAM ID">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font></Label>
+      <Label fx:id="lblTherapistId" layoutX="80.0" layoutY="202.0" text="THERAPIST ID">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font></Label>
+      <Label fx:id="lblPatientId" layoutX="80.0" layoutY="250.0" text="PATIENT ID">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font></Label>
+      <TextField fx:id="txtProgramId" layoutX="241.0" layoutY="151.0" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #07f0d8;" />
+      <TextField fx:id="txtTherapistId" layoutX="241.0" layoutY="196.0" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #07f0d8;" />
+      <Button fx:id="btnDelete" layoutX="720.0" layoutY="378.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #07f0d8;" text="DELETE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font></Button>
+      <Button fx:id="btnUpdate" layoutX="831.0" layoutY="378.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #07f0d8;" text="UPDATE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font></Button>
+      <Button fx:id="btnSave" layoutX="943.0" layoutY="378.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #07f0d8;" text="SAVE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="195.0" fitWidth="449.0" layoutX="53.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/GettyImages-1001713236-730x330.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtPatientId" layoutX="241.0" layoutY="246.0" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #07f0d8;" />
+      <Label fx:id="lblDuration" layoutX="80.0" layoutY="300.0" text="SESSION DURATION">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDuration" layoutX="241.0" layoutY="296.0" prefHeight="26.0" prefWidth="167.0" style="-fx-background-color: #07f0d8;" />
+      <Label fx:id="lblPDate" layoutX="80.0" layoutY="345.0" text="PLACE DATE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="195.0" fitWidth="449.0" layoutX="484.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/GettyImages-1001713236-730x330.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="195.0" fitWidth="167.0" layoutX="915.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/sessionimage2.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblSession" layoutX="52.0" layoutY="416.0" opacity="0.71" prefHeight="237.0" prefWidth="1020.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
+         <columns>
+            <TableColumn fx:id="colSessionId" minWidth="0.0" prefWidth="73.5999755859375" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="SESSION ID" />
+            <TableColumn fx:id="colProgramId" minWidth="0.0" prefWidth="83.2000732421875" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="PROGRAM ID" />
+            <TableColumn fx:id="colTherapistId" minWidth="0.0" prefWidth="88.00001525878906" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="THERAPIST ID" />
+            <TableColumn fx:id="colPatientId" minWidth="0.0" prefWidth="76.79998779296875" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="PATIENT ID" />
+            <TableColumn fx:id="colDuration" minWidth="0.0" prefWidth="179.20001220703125" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="SESSION DURATION" />
+            <TableColumn fx:id="colPDate" minWidth="0.0" prefWidth="103.2000732421875" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="PLACE DATE" />
+            <TableColumn fx:id="colSDate" minWidth="0.0" prefWidth="95.20001220703125" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="SESSION DATE" />
+            <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="104.79998779296875" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="PHONE NUMBER" />
+            <TableColumn fx:id="colPayment" minWidth="0.0" prefWidth="99.20001220703125" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="PAYMENT" />
+            <TableColumn fx:id="colTotal" minWidth="0.0" prefWidth="110.4000244140625" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="TOTAL AMOUNT" />
+         </columns>
+      </TableView>
+      <Label fx:id="lblSDate" layoutX="510.0" layoutY="112.0" text="SESSION DATE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPhone" layoutX="510.0" layoutY="155.0" text="PHONE NUMBER">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPhone" layoutX="651.0" layoutY="151.0" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #07f0d8;" />
+      <Label fx:id="lblPayment" layoutX="510.0" layoutY="202.0" text="PAYMENT">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPayment" layoutX="651.0" layoutY="196.0" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #07f0d8;" />
+      <Label fx:id="lblTotal" layoutX="510.0" layoutY="250.0" text="TOTAL AMOUNT">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtTotal" layoutX="651.0" layoutY="246.0" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #07f0d8;" />
+      <DatePicker fx:id="datePDate" layoutX="241.0" layoutY="342.0" prefHeight="26.0" prefWidth="118.0" />
+      <DatePicker fx:id="dateSDate" layoutX="650.0" layoutY="108.0" prefHeight="26.0" prefWidth="118.0" />
+      <AnchorPane layoutX="862.0" layoutY="51.0" prefHeight="264.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-background-radius: 20 0 20 0; -fx-border-color: black; -fx-border-radius: 20 0 20 0;">
+         <children>
+            <ImageView fitHeight="195.0" fitWidth="200.0" layoutX="22.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/medical-finance1350x500px_tcm50-543656.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
