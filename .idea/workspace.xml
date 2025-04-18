@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35079ce0-694b-4ac9-b51c-a78ecd6b15e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/program.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/session.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/ProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/ProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/SessionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/TherapistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/TherapistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/homepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/patient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/patient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/payment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/registration.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/therapist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/therapist.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/therapy_program.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/therapy_session.fxml" beforeDir="false" />
-    </list>
+    <list default="true" id="35079ce0-694b-4ac9-b51c-a78ecd6b15e1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -161,7 +143,7 @@
       <workItem from="1744778306745" duration="3179000" />
       <workItem from="1744874799741" duration="3436000" />
       <workItem from="1744898962689" duration="1446000" />
-      <workItem from="1744910514713" duration="13794000" />
+      <workItem from="1744910514713" duration="17670000" />
     </task>
     <servers />
   </component>
