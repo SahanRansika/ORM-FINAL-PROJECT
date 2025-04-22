@@ -22,13 +22,11 @@ public class FactoryConfiguration {
         Configuration configuration = new Configuration();
 //        configuration.setProperties(properties);
 
-        configuration.addAnnotatedClass(Login.class);
         configuration.addAnnotatedClass(Patient.class);
         configuration.addAnnotatedClass(Payment.class);
         configuration.addAnnotatedClass(Program.class);
         configuration.addAnnotatedClass(Registration.class);
         configuration.addAnnotatedClass(Sessions.class);
-        configuration.addAnnotatedClass(Sign.class);
         configuration.addAnnotatedClass(Therapist.class);
 
         sessionFactory = configuration.buildSessionFactory();

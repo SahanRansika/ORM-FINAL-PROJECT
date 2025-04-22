@@ -1,16 +1,16 @@
 package healthcarecenter.bo.impl;
 
-import healthcarecenter.bo.PatientBO;
-import healthcarecenter.dto.PatientDTO;
+import healthcarecenter.bo.PaymentBO;
+import healthcarecenter.dto.PaymentDTO;
 
-public class PaymentBOImpl implements PatientBO {
+public class PaymentBOImpl implements PaymentBO {
     @Override
-    public boolean save(PatientDTO patientDTO) {
+    public boolean save(PaymentDTO paymentDTO) {
         return false;
     }
 
     @Override
-    public boolean update(PatientDTO patientDTO) {
+    public boolean update(PaymentDTO paymentDTO) {
         return false;
     }
 
@@ -21,6 +21,6 @@ public class PaymentBOImpl implements PatientBO {
 
     @Override
     public String getNextId() {
-        return "";
+        return null;
     }
 }

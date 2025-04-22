@@ -14,7 +14,6 @@ import java.io.IOException;
 public class AppInitializer extends Application{
     @Override
     public void start(Stage stage) throws IOException {
-
         Parent load = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
         Scene scene = new Scene(load);
         stage.setScene(scene);
@@ -22,7 +21,7 @@ public class AppInitializer extends Application{
         stage.show();
     }
 
-        public static void main(String[] args) throws IOException {
+        public static void main(String[] args)  {
             Session session = FactoryConfiguration.getInstance().getSession();
             launch();
         }

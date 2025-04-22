@@ -1,11 +1,11 @@
 package healthcarecenter.bo.impl;
 
 import healthcarecenter.bo.SessionBO;
-import healthcarecenter.dto.SessionDTO;
+import healthcarecenter.dto.SessionsDTO;
 
 public class SessionBOImpl implements SessionBO {
     @Override
-    public boolean save(SessionDTO sessionDTO) {
+    public boolean save(SessionsDTO sessionDTO) {
         return false;
     }
 

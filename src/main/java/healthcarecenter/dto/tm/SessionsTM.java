@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class SessionTM {
+public class SessionsTM {
     private String colSessionId;
     private String colProgramId;
     private String colTherapistId;

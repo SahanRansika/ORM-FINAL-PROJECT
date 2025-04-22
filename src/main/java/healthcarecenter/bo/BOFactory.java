@@ -5,30 +5,35 @@ import healthcarecenter.bo.impl.*;
 public class BOFactory {
     private static BOFactory boFactory;
     private BOFactory(){}
-    public static BOFactory getInstance(){return (boFactory == null ? boFactory = new BOFactory():boFactory);}
+    public static BOFactory getInstance(){
+        return boFactory == null ? new BOFactory():boFactory;
+    }
     public enum BOType{
-        Login,Patient,Payment,Program,Registration,Session,Sign,Therapist
+        Patient,Payment,Program,Registration,Session,Therapist
     }
     public SuperBO getBO(BOType boType){
         switch (boType){
-            case Login:
-                return new LoginBOImpl();
-            case Patient:
+            case Patient -> {
                 return new PatientBOImpl();
-            case Payment:
+            }
+            case Payment -> {
                 return new PaymentBOImpl();
-            case Program:
+            }
+            case Program -> {
                 return new ProgramBOImpl();
-            case Registration:
+            }
+            case Registration -> {
                 return new RegistrationBOImpl();
-            case Session:
+            }
+            case Session -> {
                 return new SessionBOImpl();
-            case Sign:
-                return new SignBOImpl();
-            case Therapist:
+            }
+            case Therapist -> {
                 return new TherapistBOImpl();
-            default:
+            }
+            default -> {
                 return null;
+            }
         }
     }
 }

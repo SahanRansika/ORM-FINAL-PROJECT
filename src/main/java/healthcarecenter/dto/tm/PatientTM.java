@@ -2,6 +2,8 @@ package healthcarecenter.dto.tm;
 
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -14,5 +16,5 @@ public class PatientTM {
     private String colGender;
     private String colBirth;
     private String colPhone;
-    private String colRDate;
+    private Date colRDate;
 }

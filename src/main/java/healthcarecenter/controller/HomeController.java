@@ -9,7 +9,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class HomeController {
 
@@ -62,7 +61,7 @@ public class HomeController {
 
     @FXML
     void btnSessionOnAction(ActionEvent event) throws IOException{
-        navigateTo("/view/session.fxml");
+        navigateTo("/view/sessions.fxml");
     }
 
     @FXML

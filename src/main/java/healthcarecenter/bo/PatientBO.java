@@ -2,12 +2,13 @@ package healthcarecenter.bo;
 
 import healthcarecenter.dto.PatientDTO;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
+import java.util.List;
 
 public interface PatientBO extends SuperBO{
-    boolean save(PatientDTO patientDTO);
-    boolean update(PatientDTO patientDTO);
-    boolean delete(String id);
-//    ArrayList<PatientDTO> getAll();
-    String getNextId();
+    boolean savePatient(PatientDTO patientDTO) throws SQLException,ClassNotFoundException;
+    boolean updatePatient(PatientDTO patientDTO) throws SQLException,ClassNotFoundException;
+    boolean deletePatient(String id) throws SQLException,ClassNotFoundException;
+    String getNextPatientId() throws SQLException,ClassNotFoundException;
+    List<PatientDTO> getAllPatient() throws SQLException,ClassNotFoundException;
 }

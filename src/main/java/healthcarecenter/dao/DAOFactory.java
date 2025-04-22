@@ -6,30 +6,35 @@ public class DAOFactory {
     private static DAOFactory daoFactory;
     private DAOFactory(){}
 
-    public static DAOFactory getInstance(){return (daoFactory == null) ? daoFactory = new DAOFactory():daoFactory;}
+    public static DAOFactory getInstance(){
+        return daoFactory == null ? new DAOFactory():daoFactory;
+    }
     public enum DAOType{
-        LOGIN,PATIENT,PAYMENT,PROGRAM,REGISTRATION,SESSION,SIGN,THERAPIST
+        PATIENT,PAYMENT,PROGRAM,REGISTRATION,SESSION,THERAPIST
     }
     public SuperDAO getDAO(DAOType daoType){
         switch (daoType){
-            case LOGIN:
-                return new LoginDAOImpl();
-            case PATIENT:
+            case PATIENT -> {
                 return new PatientDAOImpl();
-            case PAYMENT:
+            }
+            case PAYMENT -> {
                 return new PaymentDAOImpl();
-            case PROGRAM:
+            }
+            case PROGRAM -> {
                 return new ProgramDAOImpl();
-            case REGISTRATION:
+            }
+            case REGISTRATION -> {
                 return new RegistrationDAOImpl();
-            case SESSION:
-                return new SessionDAOImpl();
-            case SIGN:
-                return new SignDAOImpl();
-            case THERAPIST:
+            }
+            case SESSION -> {
+                return new SessionsDAOImpl();
+            }
+            case THERAPIST -> {
                 return new TherapistDAOImpl();
-            default:
+            }
+            default -> {
                 return null;
+            }
         }
     }
 }

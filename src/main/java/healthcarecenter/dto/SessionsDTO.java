@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class SessionDTO {
+public class SessionsDTO {
     private String colSessionId;
     private String colProgramId;
     private String colTherapistId;

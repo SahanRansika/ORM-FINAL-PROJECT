@@ -102,7 +102,7 @@ public class DashBoardController implements Initializable {
 
     @FXML
     void btnSessionOnAction(ActionEvent event) throws IOException{
-        navigateTo("/view/session.fxml");
+        navigateTo("/view/sessions.fxml");
     }
 
     @FXML

@@ -1,9 +1,7 @@
 package healthcarecenter.controller;
 
-import healthcarecenter.dto.tm.SessionTM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -13,10 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class SessionController implements Initializable {
+public class SessionsController {
 
     @FXML
     private Button btnAddTable;
@@ -28,46 +23,43 @@ public class SessionController implements Initializable {
     private Button btnRefresh;
 
     @FXML
-    private ComboBox<String> cmbPatientId;
+    private ComboBox<?> cmbPatientId;
 
     @FXML
-    private ComboBox<String> cmbProgramId;
+    private ComboBox<?> cmbProgramId;
 
     @FXML
-    private ComboBox<String> cmbTherapistId;
+    private ComboBox<?> cmbTherapistId;
 
     @FXML
-    private TableColumn<SessionTM, String> colDuration;
+    private TableColumn<?, ?> colDuration;
 
     @FXML
-    private TableColumn<SessionTM, String> colPatientId;
+    private TableColumn<?, ?> colPatientId;
 
     @FXML
-    private TableColumn<SessionTM, String> colPayment;
+    private TableColumn<?, ?> colPayment;
 
     @FXML
-    private TableColumn<SessionTM, String> colPaymentId;
+    private TableColumn<?, ?> colPlaceDate;
 
     @FXML
-    private TableColumn<SessionTM, String> colPlaceDate;
+    private TableColumn<?, ?> colProgramId;
 
     @FXML
-    private TableColumn<SessionTM, String> colProgramId;
+    private TableColumn<?, ?> colSessionDate;
 
     @FXML
-    private TableColumn<SessionTM, String> colSessionDate;
+    private TableColumn<?, ?> colSessionId;
 
     @FXML
-    private TableColumn<SessionTM, String> colSessionId;
+    private TableColumn<?, ?> colStatus;
 
     @FXML
-    private TableColumn<SessionTM, String> colStatus;
+    private TableColumn<?, ?> colTherapistId;
 
     @FXML
-    private TableColumn<SessionTM, String> colTherapistId;
-
-    @FXML
-    private TableColumn<SessionTM, String> colTotal;
+    private TableColumn<?, ?> colTotal;
 
     @FXML
     private DatePicker datePlace;
@@ -82,9 +74,6 @@ public class SessionController implements Initializable {
     private Label lblPatientName;
 
     @FXML
-    private Label lblPaymentId;
-
-    @FXML
     private Label lblProgramName;
 
     @FXML
@@ -97,7 +86,7 @@ public class SessionController implements Initializable {
     private Label lblTherapistName;
 
     @FXML
-    private TableView<SessionTM> tblSession;
+    private TableView<?> tblSession;
 
     @FXML
     private TextField txtDuration;
@@ -126,8 +115,4 @@ public class SessionController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
 }

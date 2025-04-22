@@ -1,8 +1,8 @@
 package healthcarecenter.bo;
 
-import healthcarecenter.dto.SessionDTO;
+import healthcarecenter.dto.SessionsDTO;
 
 public interface SessionBO extends SuperBO{
-    boolean save(SessionDTO sessionDTO);
+    boolean save(SessionsDTO sessionDTO);
     String getNextId();
 }

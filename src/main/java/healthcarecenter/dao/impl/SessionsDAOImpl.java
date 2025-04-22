@@ -1,19 +1,19 @@
 package healthcarecenter.dao.impl;
 
 import healthcarecenter.dao.CrudDAO;
-import healthcarecenter.entity.Therapist;
+import healthcarecenter.entity.Sessions;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class TherapistDAOImpl implements CrudDAO<Therapist> {
+public class SessionsDAOImpl implements CrudDAO<Sessions> {
     @Override
-    public boolean save(Therapist entity) throws SQLException,ClassNotFoundException{
+    public boolean save(Sessions entity) throws SQLException,ClassNotFoundException{
         return false;
     }
 
     @Override
-    public boolean update(Therapist entity) throws SQLException{
+    public boolean update(Sessions entity) throws SQLException{
         return false;
     }
 
@@ -28,7 +28,7 @@ public class TherapistDAOImpl implements CrudDAO<Therapist> {
     }
 
     @Override
-    public List<Therapist> getAll() throws SQLException, ClassNotFoundException {
+    public List<Sessions> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 }

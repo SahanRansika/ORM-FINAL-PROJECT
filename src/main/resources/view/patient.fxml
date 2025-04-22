@@ -22,15 +22,15 @@
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <Label fx:id="lblName" layoutX="80.0" layoutY="155.0" text="NAME">
+      <Label layoutX="80.0" layoutY="155.0" text="NAME">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <Label fx:id="lblAddress" layoutX="80.0" layoutY="202.0" text="ADDRESS">
+      <Label layoutX="80.0" layoutY="202.0" text="ADDRESS">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <Label fx:id="lblGender" layoutX="80.0" layoutY="250.0" text="GENDER">
+      <Label layoutX="80.0" layoutY="250.0" text="GENDER">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
@@ -65,13 +65,13 @@
          </columns>
       </TableView>
       <TextField fx:id="txtGender" layoutX="241.0" layoutY="246.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
-      <Label fx:id="lblBirth" layoutX="80.0" layoutY="300.0" text="YEAR OF BIRTH">
+      <Label layoutX="80.0" layoutY="300.0" text="YEAR OF BIRTH">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Label>
       <TextField fx:id="txtBirth" layoutX="241.0" layoutY="296.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
-      <Label fx:id="lblPhone" layoutX="80.0" layoutY="344.0" text="PHONE NUMBER">
+      <Label layoutX="80.0" layoutY="344.0" text="PHONE NUMBER">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
@@ -86,12 +86,12 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Label fx:id="lblRDate" layoutX="80.0" layoutY="388.0" text="REGISTRATION DATE">
+      <Label layoutX="80.0" layoutY="388.0" text="REGISTRATION DATE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dateRDate" layoutX="238.0" layoutY="385.0" />
+      <DatePicker fx:id="date" layoutX="238.0" layoutY="385.0" />
       <Label fx:id="lblPatientId" layoutX="245.0" layoutY="113.0" prefHeight="18.0" prefWidth="108.0" text="P001" textFill="#1b0589">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
