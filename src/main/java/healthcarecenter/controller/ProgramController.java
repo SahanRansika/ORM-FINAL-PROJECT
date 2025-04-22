@@ -1,5 +1,6 @@
 package healthcarecenter.controller;
 
+import healthcarecenter.dto.tm.ProgramTM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,31 +35,34 @@ public class ProgramController implements Initializable {
     private Label lblName;
 
     @FXML
+    private Label lblProgram;
+
+    @FXML
     private Label lblProgramId;
 
     @FXML
     private Label lblTherapistId;
 
     @FXML
-    private TableView<?> tblProgram;
+    private TableView<ProgramTM> tblProgram;
 
     @FXML
-    private TableColumn<?, ?> colCost;
+    private TableColumn<ProgramTM, String> colCost;
 
     @FXML
-    private TableColumn<?, ?> colDesc;
+    private TableColumn<ProgramTM, String> colDesc;
 
     @FXML
-    private TableColumn<?, ?> colDuration;
+    private TableColumn<ProgramTM, String> colDuration;
 
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn<ProgramTM, String> colName;
 
     @FXML
-    private TableColumn<?, ?> colProgramId;
+    private TableColumn<ProgramTM, String> colProgramId;
 
     @FXML
-    private TableColumn<?, ?> colTherapistId;
+    private TableColumn<ProgramTM, String> colTherapistId;
 
     @FXML
     private TextField txtCost;
@@ -71,9 +75,6 @@ public class ProgramController implements Initializable {
 
     @FXML
     private TextField txtName;
-
-    @FXML
-    private TextField txtProgramId;
 
     @FXML
     private TextField txtTherapistId;
@@ -115,7 +116,6 @@ public class ProgramController implements Initializable {
         btnUpdate.setDisable(false);
         btnDelete.setDisable(true);
 
-        txtProgramId.clear();
         txtTherapistId.clear();
         txtName.clear();
         txtDuration.clear();

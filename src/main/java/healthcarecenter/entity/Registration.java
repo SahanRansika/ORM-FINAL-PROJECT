@@ -1,15 +1,29 @@
 package healthcarecenter.entity;
 
-import lombok.*;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@Data
+@Entity
+@Table(name = "registration")
 public class Registration {
+    @Id
+    @Column(name = "R_Id")
     private String colRId;
     private String colPatientId;
     private String colProgramId;
     private String colDate;
+
+    @ManyToOne
+    private Payment payment;
+
+    @ManyToOne
+    private Patient patient;
+
+    @ManyToOne
+    private Program program;
 }

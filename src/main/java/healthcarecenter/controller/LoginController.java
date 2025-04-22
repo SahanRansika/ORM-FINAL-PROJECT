@@ -39,7 +39,7 @@ public class LoginController implements Initializable {
 
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException{
-        navigateToHome("/view/homepage.fxml");
+        navigateToHome("/view/dashboard.fxml");
     }
 
     @FXML

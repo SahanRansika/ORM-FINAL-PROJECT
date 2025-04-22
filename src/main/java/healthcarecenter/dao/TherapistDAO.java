@@ -1,4 +1,6 @@
 package healthcarecenter.dao;
 
-public interface TherapistDAO {
+import healthcarecenter.entity.Therapist;
+
+public interface TherapistDAO extends CrudDAO<Therapist>{
 }

@@ -1,4 +1,6 @@
 package healthcarecenter.dao;
 
-public interface PatientDAO {
+import healthcarecenter.entity.Patient;
+
+public interface PatientDAO extends CrudDAO<Patient> {
 }

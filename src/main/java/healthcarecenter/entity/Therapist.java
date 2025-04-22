@@ -1,17 +1,30 @@
 package healthcarecenter.entity;
 
-import lombok.*;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@Data
+@Entity
+@Table(name = "therapist")
 public class Therapist {
+    @Id
+    @Column(name = "therapist_Id")
     private String colTherapistId;
     private String colName;
     private String colSpec;
     private String colYears;
     private String colPhone;
     private String colAssigned;
+
+    @OneToMany(mappedBy = "therapist",cascade = CascadeType.ALL)
+    private List<Sessions> sessions;
+
+    @OneToOne(mappedBy = "therapist")
+    private Program program;
 }

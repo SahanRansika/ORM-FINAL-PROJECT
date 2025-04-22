@@ -1,4 +1,4 @@
 package healthcarecenter.bo;
 
-public interface SignBO {
+public interface SignBO extends SuperBO{
 }

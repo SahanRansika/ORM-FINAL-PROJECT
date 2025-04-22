@@ -1,5 +1,6 @@
 package healthcarecenter.controller;
 
+import healthcarecenter.dto.tm.RegistrationTM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,28 +38,28 @@ public class RegistrationController implements Initializable {
     private Label lblRId;
 
     @FXML
-    private TableView<?> tblRegistration;
+    private Label lblRegistration;
 
     @FXML
-    private TableColumn<?, ?> colDate;
+    private TableView<RegistrationTM> tblRegistration;
 
     @FXML
-    private TableColumn<?, ?> colPatientId;
+    private TableColumn<RegistrationTM, String> colDate;
 
     @FXML
-    private TableColumn<?, ?> colProgramId;
+    private TableColumn<RegistrationTM, String> colPatientId;
 
     @FXML
-    private TableColumn<?, ?> colRId;
+    private TableColumn<RegistrationTM, String> colProgramId;
+
+    @FXML
+    private TableColumn<RegistrationTM, String> colRId;
 
     @FXML
     private TextField txtPatientId;
 
     @FXML
     private TextField txtProgramId;
-
-    @FXML
-    private TextField txtRId;
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
@@ -95,7 +96,6 @@ public class RegistrationController implements Initializable {
         btnUpdate.setDisable(false);
         btnDelete.setDisable(true);
 
-        txtRId.clear();
         txtPatientId.clear();
         txtProgramId.clear();
         dateDate.cancelEdit();

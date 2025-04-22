@@ -1,4 +1,6 @@
 package healthcarecenter.dao;
 
-public interface SignDAO {
+import healthcarecenter.entity.Sign;
+
+public interface SignDAO extends CrudDAO<Sign>{
 }

@@ -1,170 +1,133 @@
 package healthcarecenter.controller;
 
+import healthcarecenter.dto.tm.SessionTM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SessionController implements Initializable {
 
     @FXML
-    private Button btnDelete;
+    private Button btnAddTable;
 
     @FXML
-    private Button btnSave;
+    private Button btnPlace;
 
     @FXML
-    private Button btnUpdate;
+    private Button btnRefresh;
 
     @FXML
-    private DatePicker datePDate;
+    private ComboBox<String> cmbPatientId;
 
     @FXML
-    private DatePicker dateSDate;
+    private ComboBox<String> cmbProgramId;
 
     @FXML
-    private Label lblDuration;
+    private ComboBox<String> cmbTherapistId;
 
     @FXML
-    private Label lblPatientId;
+    private TableColumn<SessionTM, String> colDuration;
 
     @FXML
-    private Label lblPayment;
+    private TableColumn<SessionTM, String> colPatientId;
 
     @FXML
-    private Label lblPhone;
+    private TableColumn<SessionTM, String> colPayment;
 
     @FXML
-    private Label lblPDate;
+    private TableColumn<SessionTM, String> colPaymentId;
 
     @FXML
-    private Label lblProgramId;
+    private TableColumn<SessionTM, String> colPlaceDate;
 
     @FXML
-    private Label lblSDate;
+    private TableColumn<SessionTM, String> colProgramId;
+
+    @FXML
+    private TableColumn<SessionTM, String> colSessionDate;
+
+    @FXML
+    private TableColumn<SessionTM, String> colSessionId;
+
+    @FXML
+    private TableColumn<SessionTM, String> colStatus;
+
+    @FXML
+    private TableColumn<SessionTM, String> colTherapistId;
+
+    @FXML
+    private TableColumn<SessionTM, String> colTotal;
+
+    @FXML
+    private DatePicker datePlace;
+
+    @FXML
+    private DatePicker dateSession;
+
+    @FXML
+    private HBox lblDuration;
+
+    @FXML
+    private Label lblPatientName;
+
+    @FXML
+    private Label lblPaymentId;
+
+    @FXML
+    private Label lblProgramName;
+
+    @FXML
+    private Label lblSession;
 
     @FXML
     private Label lblSessionId;
 
     @FXML
-    private Label lblTherapistId;
+    private Label lblTherapistName;
 
     @FXML
-    private Label lblTotal;
-
-    @FXML
-    private TableView<?> tblSession;
-
-    @FXML
-    private TableColumn<?, ?> colDuration;
-
-    @FXML
-    private TableColumn<?, ?> colPatientId;
-
-    @FXML
-    private TableColumn<?, ?> colPayment;
-
-    @FXML
-    private TableColumn<?, ?> colPhone;
-
-    @FXML
-    private TableColumn<?, ?> colPDate;
-
-    @FXML
-    private TableColumn<?, ?> colProgramId;
-
-    @FXML
-    private TableColumn<?, ?> colSDate;
-
-    @FXML
-    private TableColumn<?, ?> colSessionId;
-
-    @FXML
-    private TableColumn<?, ?> colTherapistId;
-
-    @FXML
-    private TableColumn<?, ?> colTotal;
-
+    private TableView<SessionTM> tblSession;
 
     @FXML
     private TextField txtDuration;
 
     @FXML
-    private TextField txtPatientId;
-
-    @FXML
     private TextField txtPayment;
 
     @FXML
-    private TextField txtPhone;
-
-    @FXML
-    private TextField txtProgramId;
-
-    @FXML
-    private TextField txtSessionId;
-
-    @FXML
-    private TextField txtTherapistId;
+    private TextField txtStatus;
 
     @FXML
     private TextField txtTotal;
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
+    void btnAddTableOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+    void btnPlaceOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) {
+    void btnRefreshOnAction(ActionEvent event) {
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        colSessionId.cellFactoryProperty(new PropertyValueFactory<>("colSessionId"));
-//        colProgramId.cellFactoryProperty(new PropertyValueFactory<>("colProgramId"));
-//        colTherapistId.cellFactoryProperty(new PropertyValueFactory<>("colTherapistId"));
-//        colPatientId.cellFactoryProperty(new PropertyValueFactory<>("colPatientId"));
-//        colDuration.cellFactoryProperty(new PropertyValueFactory<>("colDuration"));
-//        colPDate.cellFactoryProperty(new PropertyValueFactory<>("colPDate"));
-//        colSDate.cellFactoryProperty(new PropertyValueFactory<>("colSDate"));
-//        colPhone.cellFactoryProperty(new PropertyValueFactory<>("colPhone"));
-//        colPayment.cellFactoryProperty(new PropertyValueFactory<>("colPayment"));
-//        colTotal.cellFactoryProperty(new PropertyValueFactory<>("colTotal"));
 
-        try {
-            refreshPage();
-        } catch (Exception e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR,"Failed to load Session data").show();
-        }
-    }
-
-    private void refreshPage() throws SQLException,ClassNotFoundException {
-        btnSave.setDisable(false);
-        btnUpdate.setDisable(false);
-        btnDelete.setDisable(true);
-
-        txtSessionId.clear();
-        txtProgramId.clear();
-        txtTherapistId.clear();
-        txtPatientId.clear();
-        txtDuration.clear();
-        datePDate.cancelEdit();
-        dateSDate.cancelEdit();
-        txtPhone.clear();
-        txtPayment.clear();
-        txtTotal.clear();
     }
 }

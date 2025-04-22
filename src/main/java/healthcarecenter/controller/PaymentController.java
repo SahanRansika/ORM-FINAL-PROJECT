@@ -2,28 +2,20 @@ package healthcarecenter.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
-import java.io.IOException;
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-
-public class PaymentController implements Initializable {
+public class PaymentController {
 
     @FXML
     private Button btnDelete;
 
     @FXML
-    private Button btnSave;
-
-    @FXML
     private Button btnUpdate;
-
-    @FXML
-    private DatePicker datePayDate;
 
     @FXML
     private TableColumn<?, ?> colAmount;
@@ -41,10 +33,10 @@ public class PaymentController implements Initializable {
     private TableColumn<?, ?> colSessionId;
 
     @FXML
-    private Label lblAmount;
+    private DatePicker datePayDate;
 
     @FXML
-    private Label lblPayDate;
+    private Label lblPayment;
 
     @FXML
     private Label lblPaymentId;
@@ -62,21 +54,7 @@ public class PaymentController implements Initializable {
     private TextField txtAmount;
 
     @FXML
-    private TextField txtPaymentId;
-
-    @FXML
-    private TextField txtRId;
-
-    @FXML
-    private TextField txtSessionId;
-
-    @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnSaveOnAction(ActionEvent event) {
 
     }
 
@@ -85,31 +63,4 @@ public class PaymentController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        colPaymentId.cellFactoryProperty(new PropertyValueFactory<>("colPaymentId"));
-//        colRId.cellFactoryProperty(new PropertyValueFactory<>("colRId"));
-//        colSessionId.cellFactoryProperty(new PropertyValueFactory<>("colSessionId"));
-//        colPayDate.cellFactoryProperty(new PropertyValueFactory<>("colPayDate"));
-//        colAmount.cellFactoryProperty(new PropertyValueFactory<>("colAmount"));
-
-        try {
-            refreshPage();
-        } catch (Exception e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR,"Failed to load payment data").show();
-        }
-    }
-
-    private void refreshPage() throws SQLException,ClassNotFoundException {
-        btnSave.setDisable(false);
-        btnUpdate.setDisable(false);
-        btnDelete.setDisable(true);
-
-        txtPaymentId.clear();
-        txtRId.clear();
-        txtSessionId.clear();
-        datePayDate.cancelEdit();
-        txtAmount.clear();
-    }
 }

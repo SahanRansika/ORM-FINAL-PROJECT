@@ -1,4 +1,6 @@
 package healthcarecenter.dao;
 
-public interface LoginDAO {
+import healthcarecenter.entity.Login;
+
+public interface LoginDAO extends CrudDAO<Login>{
 }

@@ -1,4 +1,6 @@
 package healthcarecenter.dao;
 
-public interface RegistrationDAO {
+import healthcarecenter.entity.Registration;
+
+public interface RegistrationDAO extends CrudDAO<Registration>{
 }

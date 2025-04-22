@@ -3,6 +3,7 @@ package healthcarecenter.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
@@ -10,9 +11,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class HomepageController {
+public class DashBoardController implements Initializable {
 
     @FXML
     private Button btnLogout;
@@ -44,16 +47,20 @@ public class HomepageController {
     @FXML
     private Button btnTherapist;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        navigateTo("/view/home.fxml");
+    }
 
     @FXML
     void btnLogoutOnAction(ActionEvent event) {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("LOG OUT");
-            alert.setHeaderText("Are you sure you want to log out?");
+            alert.setHeaderText("ARE YOUR SURE LOGOUT?");
 
-            ButtonType yesButton = new ButtonType("Exit", ButtonBar.ButtonData.YES);
-            ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.NO);
+            ButtonType yesButton = new ButtonType("EXIT", ButtonBar.ButtonData.YES);
+            ButtonType noButton = new ButtonType("NO", ButtonBar.ButtonData.NO);
             alert.getButtonTypes().setAll(yesButton,noButton);
 
             var result = alert.showAndWait();
@@ -64,13 +71,13 @@ public class HomepageController {
                 alert.close();
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR,"An error : " + e.getMessage()).show();
+            new Alert(Alert.AlertType.ERROR,"AN ERROR : " + e.getMessage()).show();
         }
     }
 
     @FXML
     void btnHomeOnAction(ActionEvent event) throws IOException{
-//        navigateTo("view/homepage.fxml");
+        navigateTo("/view/home.fxml");
     }
 
     @FXML
@@ -103,10 +110,18 @@ public class HomepageController {
         navigateTo("/view/therapist.fxml");
     }
 
-    public void navigateTo(String path) throws IOException {
-        ancLoad.getChildren().clear();
-        AnchorPane load = FXMLLoader.load(getClass().getResource(path));
-        ancLoad.getChildren().add(load);
+    public void navigateTo(String fxmlPath)  {
+        try {
+            ancLoad.getChildren().clear();
+            AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
+            load.prefWidthProperty().bind(ancLoad.widthProperty());
+            load.prefHeightProperty().bind(ancLoad.heightProperty());
+            ancLoad.getChildren().add(load);
+        } catch (IOException e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR,"FAILED TO LOAD PAGE...!").show();
+        }
+
     }
 
 }

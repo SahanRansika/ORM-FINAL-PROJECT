@@ -11,18 +11,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: white; -fx-background-radius: 20 0 0 0; -fx-border-radius: 20 0 0 0; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthcarecenter.controller.PatientController">
+<AnchorPane prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthcarecenter.controller.PatientController">
    <children>
-      <Label layoutX="82.0" layoutY="29.0" prefHeight="43.0" prefWidth="154.0" text="PATIENT">
+      <Label fx:id="lblPatient" layoutX="82.0" layoutY="29.0" prefHeight="43.0" prefWidth="154.0" text="PATIENT">
          <font>
             <Font name="Bauhaus 93" size="37.0" />
          </font>
       </Label>
-      <Label fx:id="lblPatientId" layoutX="80.0" layoutY="112.0" text="PATIENT ID">
+      <Label layoutX="80.0" layoutY="112.0" text="PATIENT ID">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <TextField fx:id="txtPatientId" layoutX="242.0" layoutY="108.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #07f0d8;" />
       <Label fx:id="lblName" layoutX="80.0" layoutY="155.0" text="NAME">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
@@ -35,17 +34,17 @@
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <TextField fx:id="txtName" layoutX="241.0" layoutY="151.0" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #07f0d8;" />
-      <TextField fx:id="txtAddress" layoutX="241.0" layoutY="196.0" prefHeight="26.0" prefWidth="167.0" style="-fx-background-color: #07f0d8;" />
-      <Button fx:id="btnDelete" layoutX="95.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #07f0d8;" text="DELETE">
+      <TextField fx:id="txtName" layoutX="241.0" layoutY="151.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
+      <TextField fx:id="txtAddress" layoutX="241.0" layoutY="196.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
+      <Button fx:id="btnDelete" layoutX="95.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <Button fx:id="btnUpdate" layoutX="199.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #07f0d8;" text="UPDATE">
+      <Button fx:id="btnUpdate" layoutX="199.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <Button fx:id="btnSave" layoutX="302.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #07f0d8;" text="SAVE">
+      <Button fx:id="btnSave" layoutX="302.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="SAVE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
@@ -56,28 +55,28 @@
       </ImageView>
       <TableView fx:id="tblPatient" layoutX="427.0" layoutY="91.0" opacity="0.57" prefHeight="436.0" prefWidth="691.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
          <columns>
-            <TableColumn fx:id="colPatientId" minWidth="0.0" prefWidth="72.00006103515625" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="PATIENT ID" />
-            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="114.39993286132812" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="NAME" />
-            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="116.79998779296875" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="ADDRESS" />
-            <TableColumn fx:id="colGender" minWidth="0.0" prefWidth="80.800048828125" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="GENDER" />
-            <TableColumn fx:id="colBirth" minWidth="0.0" prefWidth="109.59991455078125" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="YEAR OF BIRTH" />
-            <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="83.199951171875" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="PHONE NUMBER" />
-            <TableColumn fx:id="colRDate" minWidth="0.0" prefWidth="110.40007324218755" style="-fx-background-color: #07f0d8; -fx-border-color: black;" text="REGISTRATION DATE" />
+            <TableColumn fx:id="colPatientId" minWidth="0.0" prefWidth="72.00006103515625" style="-fx-background-color: white; -fx-border-color: black;" text="PATIENT ID" />
+            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="114.39993286132812" style="-fx-background-color: white; -fx-border-color: black;" text="NAME" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="116.79998779296875" style="-fx-background-color: white; -fx-border-color: black;" text="ADDRESS" />
+            <TableColumn fx:id="colGender" minWidth="0.0" prefWidth="80.800048828125" style="-fx-background-color: white; -fx-border-color: black;" text="GENDER" />
+            <TableColumn fx:id="colBirth" minWidth="0.0" prefWidth="109.59991455078125" style="-fx-background-color: white; -fx-border-color: black;" text="YEAR OF BIRTH" />
+            <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="83.199951171875" style="-fx-background-color: white; -fx-border-color: black;" text="PHONE NUMBER" />
+            <TableColumn fx:id="colRDate" minWidth="0.0" prefWidth="110.40007324218755" style="-fx-background-color: white; -fx-border-color: black;" text="REGISTRATION DATE" />
          </columns>
       </TableView>
-      <TextField fx:id="txtGender" layoutX="241.0" layoutY="246.0" prefHeight="26.0" prefWidth="167.0" style="-fx-background-color: #07f0d8;" />
+      <TextField fx:id="txtGender" layoutX="241.0" layoutY="246.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
       <Label fx:id="lblBirth" layoutX="80.0" layoutY="300.0" text="YEAR OF BIRTH">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtBirth" layoutX="241.0" layoutY="296.0" prefHeight="26.0" prefWidth="167.0" style="-fx-background-color: #07f0d8;" />
+      <TextField fx:id="txtBirth" layoutX="241.0" layoutY="296.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
       <Label fx:id="lblPhone" layoutX="80.0" layoutY="344.0" text="PHONE NUMBER">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPhone" layoutX="241.0" layoutY="341.0" prefHeight="26.0" prefWidth="167.0" style="-fx-background-color: #07f0d8;" />
+      <TextField fx:id="txtPhone" layoutX="241.0" layoutY="341.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
       <AnchorPane layoutX="59.0" layoutY="504.0" prefHeight="170.0" prefWidth="298.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-radius: 20 0 20 0; -fx-border-color: black;">
          <children>
             <ImageView fitHeight="168.0" fitWidth="238.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -93,5 +92,9 @@
          </font>
       </Label>
       <DatePicker fx:id="dateRDate" layoutX="238.0" layoutY="385.0" />
+      <Label fx:id="lblPatientId" layoutX="245.0" layoutY="113.0" prefHeight="18.0" prefWidth="108.0" text="P001" textFill="#1b0589">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font></Label>
    </children>
 </AnchorPane>

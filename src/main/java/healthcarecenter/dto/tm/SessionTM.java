@@ -1,4 +1,4 @@
-package healthcarecenter.entity;
+package healthcarecenter.dto.tm;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Session {
+public class SessionTM {
     private String colSessionId;
     private String colProgramId;
     private String colTherapistId;

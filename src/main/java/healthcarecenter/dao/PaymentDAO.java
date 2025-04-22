@@ -1,4 +1,6 @@
 package healthcarecenter.dao;
 
-public interface PaymentDAO {
+import healthcarecenter.entity.Payment;
+
+public interface PaymentDAO extends CrudDAO<Payment>{
 }

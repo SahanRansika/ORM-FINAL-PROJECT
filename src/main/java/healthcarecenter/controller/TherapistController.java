@@ -1,5 +1,6 @@
 package healthcarecenter.controller;
 
+import healthcarecenter.dto.tm.TherapistTM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,30 +35,33 @@ public class TherapistController implements Initializable {
     private Label lblSpec;
 
     @FXML
+    private Label lblTherapist;
+
+    @FXML
     private Label lblTherapistId;
 
     @FXML
     private Label lblYears;
 
     @FXML
-    private TableView<?> tblTherapist;
+    private TableView<TherapistTM> tblTherapist;
     @FXML
-    private TableColumn<?, ?> colAssigned;
+    private TableColumn<TherapistTM, String> colAssigned;
 
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn<TherapistTM, String> colName;
 
     @FXML
-    private TableColumn<?, ?> colPhone;
+    private TableColumn<TherapistTM, String> colPhone;
 
     @FXML
-    private TableColumn<?, ?> colSpec;
+    private TableColumn<TherapistTM, String> colSpec;
 
     @FXML
-    private TableColumn<?, ?> colTherapistId;
+    private TableColumn<TherapistTM, String> colTherapistId;
 
     @FXML
-    private TableColumn<?, ?> colYears;
+    private TableColumn<TherapistTM, String> colYears;
 
 
     @FXML
@@ -71,9 +75,6 @@ public class TherapistController implements Initializable {
 
     @FXML
     private TextField txtSpec;
-
-    @FXML
-    private TextField txtTherapistId;
 
     @FXML
     private TextField txtYears;
@@ -115,7 +116,6 @@ public class TherapistController implements Initializable {
         btnUpdate.setDisable(false);
         btnDelete.setDisable(true);
 
-        txtTherapistId.clear();
         txtName.clear();
         txtSpec.clear();
         txtYears.clear();

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancMain" prefHeight="775.0" prefWidth="1380.0" style="-fx-background-color: white; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthcarecenter.controller.DashBoardController">
+   <children>
+      <AnchorPane prefHeight="775.0" prefWidth="126.0" style="-fx-background-color: #1b0589;">
+         <children>
+            <Label layoutX="17.0" layoutY="72.0" text="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="40.0" text="CARE" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnRegistration" layoutX="24.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnRegistrationOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="REGISTRATION" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnTherapist" layoutX="24.0" layoutY="290.0" mnemonicParsing="false" onAction="#btnTherapistOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="THERPIST" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSession" layoutX="24.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnSessionOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="THERAPY SESSION" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnProgram" layoutX="24.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnProgramOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="THERAPY PROGRAM" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnPatient" layoutX="24.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnPatientOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="PATIENT" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnPayment" layoutX="24.0" layoutY="622.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="PAYMENT" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLogout" layoutX="14.0" layoutY="716.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="42.0" prefWidth="98.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="LOG OUT" textFill="#100000">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="17.0" layoutY="8.0" text="HEALTH  " textFill="#f7f7f7">
+         <font>
+            <Font name="Bauhaus 93" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="dashLabel" layoutX="134.0" layoutY="14.0" text="DASHLABEL" textFill="#050000">
+         <font>
+            <Font name="Bauhaus 93" size="30.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="ancLoad" layoutX="218.0" layoutY="65.0" prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: WHITE; -fx-border-color: white; -fx-border-radius: 20 0 0 0;" />
+      <Button fx:id="btnHome" layoutX="24.0" layoutY="125.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="HOME" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
