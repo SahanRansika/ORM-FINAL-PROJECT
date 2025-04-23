@@ -11,17 +11,8 @@ public class FactoryConfiguration {
     private SessionFactory sessionFactory;
 
     private FactoryConfiguration() {
-//        Properties properties = new Properties();
-//        try {
-//            FileInputStream fis = new FileInputStream("src/main/resources/Hibernate.properties");
-//            properties.load(fis);
-//        } catch (IOException e) {
-//            throw new RuntimeException("Failed to load Hibernate properties file", e);
-//        }
 
         Configuration configuration = new Configuration();
-//        configuration.setProperties(properties);
-
         configuration.addAnnotatedClass(Patient.class);
         configuration.addAnnotatedClass(Payment.class);
         configuration.addAnnotatedClass(Program.class);

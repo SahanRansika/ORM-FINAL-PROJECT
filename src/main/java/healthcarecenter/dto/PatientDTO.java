@@ -2,14 +2,9 @@ package healthcarecenter.dto;
 
 import lombok.*;
 
-import java.util.Date;
-
-@Getter
-@Setter
+import java.sql.Date;
 @AllArgsConstructor
-@NoArgsConstructor
-@ToString
-
+@Data
 public class PatientDTO {
     private String patientId;
     private String name;
@@ -17,5 +12,6 @@ public class PatientDTO {
     private String gender;
     private String birth;
     private String phone;
-    private Date rDate;
+    private Date registrationDate;
+
 }

@@ -15,12 +15,21 @@ import java.util.List;
 public class Program {
     @Id
     @Column(name = "program_Id")
-    private String colProgramedId;
-    private String colTherapistId;
-    private String colName;
-    private String colDuration;
-    private String colCost;
-    private String colDesc;
+    private String programId;
+    private String therapistId;
+    private String name;
+    private String duration;
+    private String cost;
+    private String description;
+
+    public Program(String programId, String therapistId, String name, String duration, String cost, String description) {
+        this.programId = programId;
+        this.therapistId = therapistId;
+        this.name = name;
+        this.duration = duration;
+        this.cost = cost;
+        this.description = description;
+    }
 
     @OneToMany(mappedBy = "program",cascade = CascadeType.ALL)
     private List<Sessions> sessions;
@@ -30,4 +39,5 @@ public class Program {
 
     @OneToMany(mappedBy = "program",cascade = CascadeType.ALL)
     private List<Registration> registration;
+
 }

@@ -36,7 +36,10 @@ public class PaymentController {
     private DatePicker datePayDate;
 
     @FXML
-    private Label lblPayment;
+    private Label lblAmount;
+
+    @FXML
+    private Label lblPayDate;
 
     @FXML
     private Label lblPaymentId;
@@ -52,6 +55,12 @@ public class PaymentController {
 
     @FXML
     private TextField txtAmount;
+
+    @FXML
+    private TextField txtRId;
+
+    @FXML
+    private TextField txtSessionId;
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {

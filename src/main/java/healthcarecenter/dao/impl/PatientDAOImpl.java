@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
 public class PatientDAOImpl implements PatientDAO {
     @Override
@@ -17,9 +17,9 @@ public class PatientDAOImpl implements PatientDAO {
         Transaction transaction = session.beginTransaction();
 
         try {
-            Patient patient = session.get(Patient.class, entity.getColPatientId());
+            Patient patient = session.get(Patient.class, entity.getPatientId());
             if (patient != null){
-                new Alert(Alert.AlertType.ERROR,"Patient already exists").show();
+                new Alert(Alert.AlertType.ERROR,"PATIENT ALREADY EXISTS").show();
             }
 
             session.persist(entity);
@@ -53,7 +53,7 @@ public String generateNewId() throws SQLException,ClassNotFoundException{
     }
 
     @Override
-    public List<Patient> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<Patient> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 }

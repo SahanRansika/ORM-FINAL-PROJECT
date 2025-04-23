@@ -15,16 +15,26 @@ import java.util.List;
 public class Therapist {
     @Id
     @Column(name = "therapist_Id")
-    private String colTherapistId;
-    private String colName;
-    private String colSpec;
-    private String colYears;
-    private String colPhone;
-    private String colAssigned;
+    private String therapistId;
+    private String name;
+    private String spec;
+    private String years;
+    private String phone;
+    private String assigned;
+
+    public Therapist(String therapistId, String name, String spec, String years, String phone, String assigned) {
+        this.therapistId = therapistId;
+        this.name = name;
+        this.spec = spec;
+        this.years = years;
+        this.phone = phone;
+        this.assigned = assigned;
+    }
 
     @OneToMany(mappedBy = "therapist",cascade = CascadeType.ALL)
     private List<Sessions> sessions;
 
     @OneToOne(mappedBy = "therapist")
     private Program program;
+
 }

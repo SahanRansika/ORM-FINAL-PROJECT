@@ -11,19 +11,20 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "payment")
+@Table(name = "payments")
 public class Payment {
     @Id
     @Column(name = "payment_Id")
-    private String colPaymentId;
-    private String colRId;
-    private String colSessionId;
-    private String colPayDate;
-    private String colAmount;
+    private String paymentId;
+    private String registrationId;
+    private String sessionId;
+    private String payDate;
+    private String amount;
 
-    @OneToOne(mappedBy = "payment")
-    private Sessions sessions;
+    @OneToMany(mappedBy = "payments",cascade = CascadeType.ALL)
+    private List<Sessions> sessions;
 
-    @OneToMany(mappedBy = "payment",cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "payments",cascade = CascadeType.ALL)
     private List<Registration> registration;
 }

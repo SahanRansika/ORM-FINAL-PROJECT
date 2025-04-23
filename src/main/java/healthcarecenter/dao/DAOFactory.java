@@ -10,7 +10,7 @@ public class DAOFactory {
         return daoFactory == null ? new DAOFactory():daoFactory;
     }
     public enum DAOType{
-        PATIENT,PAYMENT,PROGRAM,REGISTRATION,SESSION,THERAPIST
+        PATIENT,PAYMENT,PROGRAM,REGISTRATION,SESSIONS,THERAPIST
     }
     public SuperDAO getDAO(DAOType daoType){
         switch (daoType){
@@ -26,7 +26,7 @@ public class DAOFactory {
             case REGISTRATION -> {
                 return new RegistrationDAOImpl();
             }
-            case SESSION -> {
+            case SESSIONS -> {
                 return new SessionsDAOImpl();
             }
             case THERAPIST -> {

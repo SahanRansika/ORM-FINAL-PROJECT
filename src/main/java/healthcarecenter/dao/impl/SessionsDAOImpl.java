@@ -4,6 +4,7 @@ import healthcarecenter.dao.CrudDAO;
 import healthcarecenter.entity.Sessions;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SessionsDAOImpl implements CrudDAO<Sessions> {
@@ -28,7 +29,7 @@ public class SessionsDAOImpl implements CrudDAO<Sessions> {
     }
 
     @Override
-    public List<Sessions> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<Sessions> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 }

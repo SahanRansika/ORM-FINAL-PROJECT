@@ -2,14 +2,14 @@ package healthcarecenter.dto;
 
 import lombok.*;
 
-@Getter
-@Setter
+import java.sql.Date;
+
 @AllArgsConstructor
-@NoArgsConstructor
-@ToString
+@Data
 public class RegistrationDTO {
-    private String colRId;
-    private String colPatientId;
-    private String colProgramId;
-    private String colDate;
+    private String registrationId;
+    private String patientId;
+    private String programId;
+    private Date registrationDate;
+
 }

@@ -13,16 +13,16 @@ import lombok.NoArgsConstructor;
 public class Sessions {
     @Id
     @Column(name = "Session_Id")
-    private String colSessionId;
-    private String colProgramId;
-    private String colTherapistId;
-    private String colPatientId;
-    private String colDuration;
-    private String colPDate;
-    private String colSDate;
-    private String colPhone;
-    private String colPayment;
-    private String colTotal;
+    private String sessionId;
+    private String programId;
+    private String therapistId;
+    private String patientId;
+    private String duration;
+    private String pDate;
+    private String sDate;
+    private String phone;
+    private String payment;
+    private String total;
 
     @ManyToOne
     private Patient patient;
@@ -33,7 +33,8 @@ public class Sessions {
     @ManyToOne
     private Therapist therapist;
 
-    @OneToOne
-    private Payment payment;
+    @ManyToOne
+    private Payment payments;
+
 
 }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -36,35 +37,23 @@
          </font></Label>
       <TextField fx:id="txtName" layoutX="241.0" layoutY="151.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
       <TextField fx:id="txtAddress" layoutX="241.0" layoutY="196.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
-      <Button fx:id="btnDelete" layoutX="95.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="95.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <Button fx:id="btnUpdate" layoutX="199.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
+      <Button fx:id="btnUpdate" layoutX="199.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <Button fx:id="btnSave" layoutX="302.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="SAVE" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="302.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="SAVE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <ImageView fitHeight="477.0" fitWidth="691.0" layoutX="427.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="477.0" fitWidth="691.0" layoutX="427.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Nursing-Assistant-1200x675.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tblPatient" layoutX="427.0" layoutY="91.0" opacity="0.57" prefHeight="436.0" prefWidth="691.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
-         <columns>
-            <TableColumn fx:id="colPatientId" minWidth="0.0" prefWidth="72.00006103515625" style="-fx-background-color: white; -fx-border-color: black;" text="PATIENT ID" />
-            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="114.39993286132812" style="-fx-background-color: white; -fx-border-color: black;" text="NAME" />
-            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="116.79998779296875" style="-fx-background-color: white; -fx-border-color: black;" text="ADDRESS" />
-            <TableColumn fx:id="colGender" minWidth="0.0" prefWidth="80.800048828125" style="-fx-background-color: white; -fx-border-color: black;" text="GENDER" />
-            <TableColumn fx:id="colBirth" minWidth="0.0" prefWidth="109.59991455078125" style="-fx-background-color: white; -fx-border-color: black;" text="YEAR OF BIRTH" />
-            <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="83.199951171875" style="-fx-background-color: white; -fx-border-color: black;" text="PHONE NUMBER" />
-            <TableColumn fx:id="colRDate" minWidth="0.0" prefWidth="110.40007324218755" style="-fx-background-color: white; -fx-border-color: black;" text="REGISTRATION DATE" />
-         </columns>
-      </TableView>
-      <TextField fx:id="txtGender" layoutX="241.0" layoutY="246.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
       <Label layoutX="80.0" layoutY="300.0" text="YEAR OF BIRTH">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
@@ -91,10 +80,41 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Label>
-      <DatePicker fx:id="date" layoutX="238.0" layoutY="385.0" />
       <Label fx:id="lblPatientId" layoutX="245.0" layoutY="113.0" prefHeight="18.0" prefWidth="108.0" text="P001" textFill="#1b0589">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
+      <Label fx:id="lbldate" layoutX="245.0" layoutY="388.0" prefHeight="18.0" prefWidth="108.0" text="2099-01-01" textFill="#1b0589">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblPatient" layoutX="426.0" layoutY="95.0" onMouseClicked="#onClickTable" opacity="0.57" prefHeight="454.0" prefWidth="691.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
+         <columns>
+            <TableColumn fx:id="colPatientId" minWidth="0.0" prefWidth="72.00006103515625" style="-fx-background-color: white; -fx-border-color: black;" text="PATIENT ID" />
+            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="114.39993286132812" style="-fx-background-color: white; -fx-border-color: black;" text="NAME" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="116.79998779296875" style="-fx-background-color: white; -fx-border-color: black;" text="ADDRESS" />
+            <TableColumn fx:id="colGender" minWidth="0.0" prefWidth="80.800048828125" style="-fx-background-color: white; -fx-border-color: black;" text="GENDER" />
+            <TableColumn fx:id="colBirth" minWidth="0.0" prefWidth="109.59991455078125" style="-fx-background-color: white; -fx-border-color: black;" text="YEAR OF BIRTH" />
+            <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="83.199951171875" style="-fx-background-color: white; -fx-border-color: black;" text="PHONE NUMBER" />
+            <TableColumn fx:id="colRDate" minWidth="0.0" prefWidth="110.40007324218755" style="-fx-background-color: white; -fx-border-color: black;" text="REGISTRATION DATE" />
+         </columns>
+      </TableView>
+      <RadioButton fx:id="radioBtnMale" layoutX="252.0" layoutY="244.0" mnemonicParsing="false" text="Male">
+         <toggleGroup>
+            <ToggleGroup fx:id="gender" />
+         </toggleGroup>
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioBtnFemale" layoutX="317.0" layoutY="244.0" mnemonicParsing="false" text="Female">
+         <toggleGroup>
+            <ToggleGroup fx:id="gender" />
+         </toggleGroup>
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </RadioButton>
    </children>
 </AnchorPane>

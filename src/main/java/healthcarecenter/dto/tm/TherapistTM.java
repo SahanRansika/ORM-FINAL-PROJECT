@@ -2,16 +2,13 @@ package healthcarecenter.dto.tm;
 
 import lombok.*;
 
-@Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
-@ToString
+@Data
 public class TherapistTM {
-    private String colTherapistId;
-    private String colName;
-    private String colSpec;
-    private String colYears;
-    private String colPhone;
-    private String colAssigned;
+    private String therapistId;
+    private String name;
+    private String spec;
+    private String years;
+    private String phone;
+    private String assigned;
 }

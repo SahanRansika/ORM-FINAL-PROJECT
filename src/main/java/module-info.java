@@ -6,6 +6,8 @@ module org.example.healthcarecenter {
     requires java.naming;
     requires static lombok;
     requires mysql.connector.j;
+    requires java.management;
+    requires java.desktop;
 
     opens healthcarecenter.controller to javafx.fxml;
     opens healthcarecenter to javafx.fxml;

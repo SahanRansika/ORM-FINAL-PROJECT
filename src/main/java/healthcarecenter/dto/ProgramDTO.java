@@ -2,16 +2,13 @@ package healthcarecenter.dto;
 
 import lombok.*;
 
-@Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
-@ToString
+@Data
 public class ProgramDTO {
-    private String colProgramedId;
-    private String colTherapistId;
-    private String colName;
-    private String colDuration;
-    private String colCost;
-    private String colDesc;
+    private String programId;
+    private String therapistId;
+    private String name;
+    private String duration;
+    private String cost;
+    private String description;
 }

@@ -4,7 +4,7 @@ import healthcarecenter.dao.CrudDAO;
 import healthcarecenter.entity.Payment;
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
 public class PaymentDAOImpl implements CrudDAO<Payment> {
     @Override
@@ -28,7 +28,7 @@ public class PaymentDAOImpl implements CrudDAO<Payment> {
     }
 
     @Override
-    public List<Payment> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<Payment> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 }

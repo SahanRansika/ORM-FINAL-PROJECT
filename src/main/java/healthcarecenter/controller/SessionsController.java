@@ -1,17 +1,24 @@
 package healthcarecenter.controller;
 
+import healthcarecenter.bo.BOFactory;
+import healthcarecenter.bo.SessionsBO;
+import healthcarecenter.dto.tm.SessionsTM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
+import java.sql.SQLException;;
+
 public class SessionsController {
+
+    @FXML
+    private Label Sdate;
 
     @FXML
     private Button btnAddTable;
@@ -23,49 +30,43 @@ public class SessionsController {
     private Button btnRefresh;
 
     @FXML
-    private ComboBox<?> cmbPatientId;
+    private ComboBox<String> cmbPatientId;
 
     @FXML
-    private ComboBox<?> cmbProgramId;
+    private ComboBox<String> cmbProgramId;
 
     @FXML
-    private ComboBox<?> cmbTherapistId;
+    private ComboBox<String> cmbTherapistId;
 
     @FXML
-    private TableColumn<?, ?> colDuration;
+    private TableColumn<SessionsTM, String> colDuration;
 
     @FXML
-    private TableColumn<?, ?> colPatientId;
+    private TableColumn<SessionsTM, String> colPatientId;
 
     @FXML
-    private TableColumn<?, ?> colPayment;
+    private TableColumn<SessionsTM, String> colPayment;
 
     @FXML
-    private TableColumn<?, ?> colPlaceDate;
+    private TableColumn<SessionsTM, String> colPlaceDate;
 
     @FXML
-    private TableColumn<?, ?> colProgramId;
+    private TableColumn<SessionsTM, String> colProgramId;
 
     @FXML
-    private TableColumn<?, ?> colSessionDate;
+    private TableColumn<SessionsTM, String> colSessionDate;
 
     @FXML
-    private TableColumn<?, ?> colSessionId;
+    private TableColumn<SessionsTM, String> colSessionId;
 
     @FXML
-    private TableColumn<?, ?> colStatus;
+    private TableColumn<SessionsTM, String> colStatus;
 
     @FXML
-    private TableColumn<?, ?> colTherapistId;
+    private TableColumn<SessionsTM, String> colTherapistId;
 
     @FXML
-    private TableColumn<?, ?> colTotal;
-
-    @FXML
-    private DatePicker datePlace;
-
-    @FXML
-    private DatePicker dateSession;
+    private TableColumn<SessionsTM, String> colTotal;
 
     @FXML
     private HBox lblDuration;
@@ -86,7 +87,7 @@ public class SessionsController {
     private Label lblTherapistName;
 
     @FXML
-    private TableView<?> tblSession;
+    private TableView<SessionsTM> tblSession;
 
     @FXML
     private TextField txtDuration;
@@ -99,6 +100,8 @@ public class SessionsController {
 
     @FXML
     private TextField txtTotal;
+
+    SessionsBO sessionsBO = (SessionsBO) BOFactory.getInstance().getBO(BOFactory.BOType.Sessions);
 
     @FXML
     void btnAddTableOnAction(ActionEvent event) {
@@ -113,6 +116,15 @@ public class SessionsController {
     @FXML
     void btnRefreshOnAction(ActionEvent event) {
 
+    }
+
+    public void loadNextSessionId() throws SQLException, ClassNotFoundException {
+        String nextPatientId = sessionsBO.getNextSessionId();
+        lblSessionId.setText(nextPatientId);
+    }
+
+    private void refreshPage() throws SQLException, ClassNotFoundException {
+        loadNextSessionId();
     }
 
 }

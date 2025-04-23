@@ -9,7 +9,7 @@ public class BOFactory {
         return boFactory == null ? new BOFactory():boFactory;
     }
     public enum BOType{
-        Patient,Payment,Program,Registration,Session,Therapist
+        Patient,Payment,Program,Registration,Sessions,Therapist
     }
     public SuperBO getBO(BOType boType){
         switch (boType){
@@ -25,8 +25,8 @@ public class BOFactory {
             case Registration -> {
                 return new RegistrationBOImpl();
             }
-            case Session -> {
-                return new SessionBOImpl();
+            case Sessions -> {
+                return new SessionsBOImpl();
             }
             case Therapist -> {
                 return new TherapistBOImpl();
