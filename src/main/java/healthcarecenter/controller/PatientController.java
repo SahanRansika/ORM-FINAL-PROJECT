@@ -4,7 +4,6 @@ import healthcarecenter.bo.BOFactory;
 import healthcarecenter.bo.PatientBO;
 import healthcarecenter.dto.PatientDTO;
 import healthcarecenter.dto.tm.PatientTM;
-import healthcarecenter.entity.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,76 +20,46 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
 public class PatientController implements Initializable {
 
     @FXML
-    private Button btnDelete;
+    private Button btnDelete, btnSave, btnUpdate;
 
     @FXML
-    private Button btnSave;
-
-    @FXML
-    private Button btnUpdate;
-
-    @FXML
-    private TableColumn<PatientTM, String> colAddress;
-
-    @FXML
-    private TableColumn<PatientTM, String> colBirth;
-
-    @FXML
-    private TableColumn<PatientTM, String> colGender;
-
-    @FXML
-    private TableColumn<PatientTM, String> colName;
-
-    @FXML
-    private TableColumn<PatientTM, String> colPatientId;
-
-    @FXML
-    private TableColumn<PatientTM, String> colPhone;
-
-    @FXML
-    private TableColumn<PatientTM, String> colRDate;
+    private TableColumn<PatientTM, String> colAddress, colBirth, colGender, colName, colPatientId, colPhone, colRDate;
 
     @FXML
     private ToggleGroup gender;
 
     @FXML
-    private Label lblPatient;
+    private Label lblPatient, lblPatientId, lbldate;
 
     @FXML
-    private Label lblPatientId;
-
-    @FXML
-    private Label lbldate;
-
-    @FXML
-    private RadioButton radioBtnFemale;
-
-    @FXML
-    private RadioButton radioBtnMale;
+    private RadioButton radioBtnFemale, radioBtnMale;
 
     @FXML
     private TableView<PatientTM> tblPatient;
 
     @FXML
-    private TextField txtAddress;
+    private TextField txtAddress, txtName, txtPhone;
 
     @FXML
-    private TextField txtBirth;
+    private DatePicker txtBirth;
 
-    @FXML
-    private TextField txtName;
-
-    @FXML
-    private TextField txtPhone;
-
-    PatientBO patientBO = (PatientBO) BOFactory.getInstance().getBO(BOFactory.BOType.Patient);
+    private final PatientBO patientBO = (PatientBO) BOFactory.getInstance().getBO(BOFactory.BOType.Patient);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeTableColumns();
+        try {
+            refreshPage();
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Failed to initialize patient data.");
+        }
+    }
+
+    private void initializeTableColumns() {
         colPatientId.setCellValueFactory(new PropertyValueFactory<>("patientId"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
@@ -98,153 +67,138 @@ public class PatientController implements Initializable {
         colBirth.setCellValueFactory(new PropertyValueFactory<>("birth"));
         colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         colRDate.setCellValueFactory(new PropertyValueFactory<>("registrationDate"));
-
-        try {
-            refreshPage();
-        } catch (Exception e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "FAILED TO INITIALIZE PATIENT DATA").show();
-        }
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
-        boolean isDeleted = patientBO.delete(lblPatientId.getText());
-        if (isDeleted) {
-            new Alert(Alert.AlertType.INFORMATION, "PATIENT DELETED SUCCESS...!").show();
+        if (patientBO.delete(lblPatientId.getText())) {
+            showAlert(Alert.AlertType.INFORMATION, "Patient deleted successfully.");
             refreshPage();
         } else {
-            new Alert(Alert.AlertType.ERROR, "FAILED TO DELETE PATIENT...!").show();
+            showAlert(Alert.AlertType.ERROR, "Failed to delete patient.");
         }
     }
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
-        RadioButton selectedRadio = (RadioButton) gender.getSelectedToggle();
-
-        if (selectedRadio == null) {
-            new Alert(Alert.AlertType.WARNING, "Please select a gender.").show();
-            return;
-        }
-
-        String genderText = selectedRadio.getText();
-        Date registrationDate = Date.valueOf(LocalDate.now());
-
-        PatientDTO patientDTO = new PatientDTO(
-                lblPatientId.getText(),
-                txtName.getText(),
-                txtAddress.getText(),
-                genderText,
-                txtBirth.getText(),
-                txtPhone.getText(),
-                registrationDate
-        );
+        PatientDTO patientDTO = getPatientDTOFromInputs();
+        if (patientDTO == null) return;
 
         try {
-            boolean isSaved = patientBO.save(patientDTO);
-            if (isSaved) {
-                new Alert(Alert.AlertType.INFORMATION, "Patient saved successfully!").show();
+            if (patientBO.save(patientDTO)) {
+                showAlert(Alert.AlertType.INFORMATION, "Patient saved successfully.");
                 refreshPage();
                 lblPatientId.setText(patientBO.getNextPatientId());
             } else {
-                new Alert(Alert.AlertType.ERROR, "Failed to save patient").show();
+                showAlert(Alert.AlertType.ERROR, "Failed to save patient.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Error occurred while saving patient").show();
+            showAlert(Alert.AlertType.ERROR, "Error occurred while saving patient.");
         }
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
-        RadioButton selectedRadio = (RadioButton) gender.getSelectedToggle();
+        PatientDTO patientDTO = getPatientDTOFromInputs();
+        if (patientDTO == null) return;
 
+        if (patientBO.update(patientDTO)) {
+            showAlert(Alert.AlertType.INFORMATION, "Patient updated successfully.");
+            refreshPage();
+        } else {
+            showAlert(Alert.AlertType.ERROR, "Failed to update patient.");
+        }
+    }
+
+    private PatientDTO getPatientDTOFromInputs() {
+        RadioButton selectedRadio = (RadioButton) gender.getSelectedToggle();
         if (selectedRadio == null) {
-            new Alert(Alert.AlertType.WARNING, "Please select a gender.").show();
-            return;
+            showAlert(Alert.AlertType.WARNING, "Please select a gender.");
+            return null;
         }
 
-        String genderText = selectedRadio.getText();
-        Date registrationDate = Date.valueOf(LocalDate.now());
+        if (txtBirth.getValue() == null) {
+            showAlert(Alert.AlertType.WARNING, "Please select birth date.");
+            return null;
+        }
 
-        PatientDTO patientDTO = new PatientDTO(
+        return new PatientDTO(
                 lblPatientId.getText(),
                 txtName.getText(),
                 txtAddress.getText(),
-                genderText,
-                txtBirth.getText(),
+                selectedRadio.getText(),
+                txtBirth.getValue().toString(),
                 txtPhone.getText(),
-                registrationDate
+                Date.valueOf(LocalDate.now())
         );
-
-        boolean isUpdated = patientBO.update(patientDTO);
-        if (isUpdated) {
-            new Alert(Alert.AlertType.CONFIRMATION, "PATIENT UPDATED SUCCESS...!").show();
-            refreshPage();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "FAILED TO UPDATE PATIENT").show();
-        }
     }
 
     private void refreshPage() throws SQLException, ClassNotFoundException {
         loadNextPatientId();
         loadTableData();
+        clearForm();
+    }
 
+    private void clearForm() {
         btnSave.setDisable(false);
         btnUpdate.setDisable(false);
         btnDelete.setDisable(true);
 
         txtName.clear();
         txtAddress.clear();
-        txtBirth.clear();
+        txtBirth.setValue(null);
         txtPhone.clear();
         gender.selectToggle(null);
-        lbldate.setText(String.valueOf(LocalDate.now()));
+        lbldate.setText(LocalDate.now().toString());
     }
 
     @FXML
     void onClickTable(MouseEvent event) {
         PatientTM selectedPatient = tblPatient.getSelectionModel().getSelectedItem();
-        if (selectedPatient != null) {
-            lblPatientId.setText(selectedPatient.getPatientId());
-            txtName.setText(selectedPatient.getName());
-            txtAddress.setText(selectedPatient.getAddress());
-            txtBirth.setText(selectedPatient.getBirth());
-            txtPhone.setText(selectedPatient.getPhone());
-            lbldate.setText(String.valueOf(selectedPatient.getRegistrationDate()));
+        if (selectedPatient == null) return;
 
-            if ("Male".equalsIgnoreCase(selectedPatient.getGender())) {
-                gender.selectToggle(radioBtnMale);
-            } else {
-                gender.selectToggle(radioBtnFemale);
-            }
+        lblPatientId.setText(selectedPatient.getPatientId());
+        txtName.setText(selectedPatient.getName());
+        txtAddress.setText(selectedPatient.getAddress());
+        txtBirth.setValue(LocalDate.parse(selectedPatient.getBirth()));
+        txtPhone.setText(selectedPatient.getPhone());
+        lbldate.setText(String.valueOf(selectedPatient.getRegistrationDate()));
 
-            btnSave.setDisable(true);
-            btnDelete.setDisable(false);
-            btnUpdate.setDisable(false);
+        if ("Male".equalsIgnoreCase(selectedPatient.getGender())) {
+            gender.selectToggle(radioBtnMale);
+        } else if ("Female".equalsIgnoreCase(selectedPatient.getGender())) {
+            gender.selectToggle(radioBtnFemale);
         }
+
+        btnSave.setDisable(true);
+        btnDelete.setDisable(false);
+        btnUpdate.setDisable(false);
     }
 
-    public void loadNextPatientId() throws SQLException, ClassNotFoundException {
-        String nextPatientId = patientBO.getNextPatientId();
-        lblPatientId.setText(nextPatientId);
+    private void loadNextPatientId() throws SQLException, ClassNotFoundException {
+        lblPatientId.setText(patientBO.getNextPatientId());
     }
 
     private void loadTableData() throws SQLException, ClassNotFoundException {
-        List<PatientDTO> patientsDTOS = patientBO.getAll();
-        ObservableList<PatientTM> patientsTMS = FXCollections.observableArrayList();
+        List<PatientDTO> patientDTOList = patientBO.getAll();
+        ObservableList<PatientTM> patientTMList = FXCollections.observableArrayList();
 
-        for (PatientDTO patientsDTO : patientsDTOS) {
-            patientsTMS.add(new PatientTM(
-                    patientsDTO.getPatientId(),
-                    patientsDTO.getName(),
-                    patientsDTO.getAddress(),
-                    patientsDTO.getGender(),
-                    patientsDTO.getBirth(),
-                    patientsDTO.getPhone(),
-                    patientsDTO.getRegistrationDate()
+        for (PatientDTO dto : patientDTOList) {
+            patientTMList.add(new PatientTM(
+                    dto.getPatientId(),
+                    dto.getName(),
+                    dto.getAddress(),
+                    dto.getGender(),
+                    dto.getBirth(),
+                    dto.getPhone(),
+                    dto.getRegistrationDate()
             ));
         }
-        tblPatient.setItems(patientsTMS);
+        tblPatient.setItems(patientTMList);
+    }
+
+    private void showAlert(Alert.AlertType type, String message) {
+        new Alert(type, message).show();
     }
 }

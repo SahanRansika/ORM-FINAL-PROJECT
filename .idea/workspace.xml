@@ -7,8 +7,8 @@
     <list default="true" id="35079ce0-694b-4ac9-b51c-a78ecd6b15e1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/impl/PatientDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/impl/PatientDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/impl/PatientDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/impl/PatientDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/patient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/patient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/PatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/PatientController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +192,8 @@
       <workItem from="1745384976012" duration="6763000" />
       <workItem from="1745394340604" duration="1762000" />
       <workItem from="1745402866605" duration="3447000" />
-      <workItem from="1745406355973" duration="5980000" />
+      <workItem from="1745406355973" duration="6237000" />
+      <workItem from="1745424258571" duration="2682000" />
     </task>
     <servers />
   </component>
