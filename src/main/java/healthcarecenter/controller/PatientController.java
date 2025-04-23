@@ -121,6 +121,12 @@ public class PatientController implements Initializable {
     @FXML
     void btnSaveOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         RadioButton selectedRadio = (RadioButton) gender.getSelectedToggle();
+
+        if (selectedRadio == null) {
+            new Alert(Alert.AlertType.WARNING, "Please select a gender.").show();
+            return;
+        }
+
         String genderText = selectedRadio.getText();
         Date registrationDate = Date.valueOf(LocalDate.now());
 
@@ -134,18 +140,30 @@ public class PatientController implements Initializable {
                 registrationDate
         );
 
-        boolean isSaved = patientBO.save(patientDTO);
-        if (isSaved) {
-            new Alert(Alert.AlertType.CONFIRMATION, "PATIENT SAVED SUCCESS...!").show();
-            refreshPage();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "FAILED TO SAVE PATIENT").show();
+        try {
+            boolean isSaved = patientBO.save(patientDTO);
+            if (isSaved) {
+                new Alert(Alert.AlertType.INFORMATION, "Patient saved successfully!").show();
+                refreshPage();
+                lblPatientId.setText(patientBO.getNextPatientId());
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to save patient").show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Error occurred while saving patient").show();
         }
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         RadioButton selectedRadio = (RadioButton) gender.getSelectedToggle();
+
+        if (selectedRadio == null) {
+            new Alert(Alert.AlertType.WARNING, "Please select a gender.").show();
+            return;
+        }
+
         String genderText = selectedRadio.getText();
         Date registrationDate = Date.valueOf(LocalDate.now());
 
