@@ -138,7 +138,7 @@ public class RegistrationController implements Initializable {
 
     private void refreshPage() throws SQLException,ClassNotFoundException {
         loadNextRegistrationId();
-//        loadTableData();
+        loadTableData();
         Rdate.setText(LocalDate.now().toString());
         btnRegister.setDisable(true);
         btnUpdate.setDisable(false);

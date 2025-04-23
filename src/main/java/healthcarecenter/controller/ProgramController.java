@@ -11,44 +11,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
 public class ProgramController implements Initializable {
 
     @FXML
-    private Button btnDelete;
+    private Button btnDelete, btnSave, btnUpdate;
 
     @FXML
-    private Button btnSave;
-
-    @FXML
-    private Button btnUpdate;
-
-    @FXML
-    private TableColumn<ProgramTM, String> colCost;
-
-    @FXML
-    private TableColumn<ProgramTM, String> colDesc;
-
-    @FXML
-    private TableColumn<ProgramTM, String> colDuration;
-
-    @FXML
-    private TableColumn<ProgramTM, String> colName;
-
-    @FXML
-    private TableColumn<ProgramTM, String> colProgramId;
-
-    @FXML
-    private TableColumn<ProgramTM, String> colTherapistId;
-
-    @FXML
-    private Label lblProgram;
+    private TableColumn<ProgramTM, String> colProgramId, colTherapistId, colName, colDuration, colCost, colDesc;
 
     @FXML
     private Label lblProgramId;
@@ -57,95 +33,87 @@ public class ProgramController implements Initializable {
     private TableView<ProgramTM> tblProgram;
 
     @FXML
-    private TextField txtCost;
-
-    @FXML
-    private TextField txtDesc;
-
-    @FXML
-    private TextField txtDuration;
-
-    @FXML
-    private TextField txtName;
+    private TextField txtName, txtDuration, txtCost, txtDesc;
 
     @FXML
     private ComboBox<String> cmbTherapistId;
 
-    ProgramBO programsBO = (ProgramBO) BOFactory.getInstance().getBO(BOFactory.BOType.Program);
+    private final ProgramBO programBO = (ProgramBO) BOFactory.getInstance().getBO(BOFactory.BOType.Program);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeTableColumns();
+        try {
+            refreshPage();
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Failed to initialize program data.");
+        }
+    }
+
+    private void initializeTableColumns() {
         colProgramId.setCellValueFactory(new PropertyValueFactory<>("programId"));
         colTherapistId.setCellValueFactory(new PropertyValueFactory<>("therapistId"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         colCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
         colDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
-
-        try {
-            refreshPage();
-        } catch (Exception e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "FAILED TO INITIALIZE PROGRAM DATA").show();
-        }
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) throws SQLException,ClassNotFoundException{
-        boolean isDeleted = programsBO.delete(lblProgramId.getText());
+    void btnDeleteOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String id = lblProgramId.getText();
+        if (id == null || id.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Please select a program to delete.");
+            return;
+        }
+
+        boolean isDeleted = programBO.delete(id);
         if (isDeleted) {
-            new Alert(Alert.AlertType.INFORMATION, "PROGRAM DELETED SUCCESS...!").show();
+            showAlert(Alert.AlertType.INFORMATION, "Program deleted successfully.");
             refreshPage();
         } else {
-            new Alert(Alert.AlertType.ERROR, "FAILED TO DELETE PROGRAM...!").show();
+            showAlert(Alert.AlertType.ERROR, "Failed to delete program.");
         }
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) throws SQLException,ClassNotFoundException{
-        ProgramDTO programsDTO = new ProgramDTO(
-                lblProgramId.getText(),
-                cmbTherapistId.getValue(),
-                txtName.getText(),
-                txtDuration.getText(),
-                txtCost.getText(),
-                txtDesc.getText()
-        );
+    void btnSaveOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        ProgramDTO programDTO = getProgramDTOFromInputs();
+        if (programDTO == null) return;
 
-        boolean isSaved = programsBO.save(programsDTO);
+        boolean isSaved = programBO.save(programDTO);
         if (isSaved) {
-            new Alert(Alert.AlertType.CONFIRMATION, "PROGRAM SAVED SUCCESS...!").show();
+            showAlert(Alert.AlertType.INFORMATION, "Program saved successfully.");
             refreshPage();
         } else {
-            new Alert(Alert.AlertType.ERROR, "FAILED TO SAVE PROGRAM").show();
+            showAlert(Alert.AlertType.ERROR, "Failed to save program.");
         }
     }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) throws SQLException,ClassNotFoundException{
-        ProgramDTO programsDTO = new ProgramDTO(
-                lblProgramId.getText(),
-                cmbTherapistId.getValue(),
-                txtName.getText(),
-                txtDuration.getText(),
-                txtCost.getText(),
-                txtDesc.getText()
-        );
+    void btnUpdateOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        ProgramDTO programDTO = getProgramDTOFromInputs();
+        if (programDTO == null) return;
 
-        boolean isUpdated = programsBO.update(programsDTO);
+        boolean isUpdated = programBO.update(programDTO);
         if (isUpdated) {
-            new Alert(Alert.AlertType.CONFIRMATION, "PROGRAM UPDATED SUCCESS...!").show();
+            showAlert(Alert.AlertType.INFORMATION, "Program updated successfully.");
             refreshPage();
         } else {
-            new Alert(Alert.AlertType.ERROR, "FAILED TO UPDATE PROGRAM").show();
+            showAlert(Alert.AlertType.ERROR, "Failed to update program.");
         }
     }
 
-    private void refreshPage() throws SQLException,ClassNotFoundException {
-//        loadTableData();
+    private void refreshPage() throws SQLException, ClassNotFoundException {
+        clearForm();
+        loadTableData();
         loadNextProgramId();
+    }
+
+    private void clearForm() {
         btnSave.setDisable(false);
-        btnUpdate.setDisable(false);
+        btnUpdate.setDisable(true);
         btnDelete.setDisable(true);
 
         cmbTherapistId.getSelectionModel().clearSelection();
@@ -155,25 +123,63 @@ public class ProgramController implements Initializable {
         txtDesc.clear();
     }
 
-    public void loadNextProgramId() throws SQLException, ClassNotFoundException {
-        String nextProgramId = programsBO.getNextProgramId();
-        lblProgramId.setText(nextProgramId);
+    private ProgramDTO getProgramDTOFromInputs() {
+        if (cmbTherapistId.getValue() == null || txtName.getText().isEmpty() ||
+                txtDuration.getText().isEmpty() || txtCost.getText().isEmpty() || txtDesc.getText().isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Please fill in all fields.");
+            return null;
+        }
+
+        return new ProgramDTO(
+                lblProgramId.getText(),
+                cmbTherapistId.getValue(),
+                txtName.getText(),
+                txtDuration.getText(),
+                txtCost.getText(),
+                txtDesc.getText()
+        );
+    }
+
+    private void loadNextProgramId() throws SQLException, ClassNotFoundException {
+        lblProgramId.setText(programBO.getNextProgramId());
     }
 
     private void loadTableData() throws SQLException, ClassNotFoundException {
-        List<ProgramDTO> programDTOS = programsBO.getAll();
-        ObservableList<ProgramTM> programTMS = FXCollections.observableArrayList();
+        List<ProgramDTO> programDTOList = programBO.getAll();
+        ObservableList<ProgramTM> programTMs = FXCollections.observableArrayList();
 
-        for (ProgramDTO programDTO : programDTOS) {
-            programTMS.add(new ProgramTM(
-                    programDTO.getProgramId(),
-                    programDTO.getTherapistId(),
-                    programDTO.getName(),
-                    programDTO.getDuration(),
-                    programDTO.getCost(),
-                    programDTO.getDescription()
+        for (ProgramDTO dto : programDTOList) {
+            programTMs.add(new ProgramTM(
+                    dto.getProgramId(),
+                    dto.getTherapistId(),
+                    dto.getName(),
+                    dto.getDuration(),
+                    dto.getCost(),
+                    dto.getDescription()
             ));
         }
-        tblProgram.setItems(programTMS);
+
+        tblProgram.setItems(programTMs);
+    }
+
+    @FXML
+    void onTableClick(MouseEvent event) {
+        ProgramTM selectedProgram = tblProgram.getSelectionModel().getSelectedItem();
+        if (selectedProgram == null) return;
+
+        lblProgramId.setText(selectedProgram.getProgramId());
+        cmbTherapistId.setValue(selectedProgram.getTherapistId());
+        txtName.setText(selectedProgram.getName());
+        txtDuration.setText(selectedProgram.getDuration());
+        txtCost.setText(selectedProgram.getCost());
+        txtDesc.setText(selectedProgram.getDescription());
+
+        btnSave.setDisable(true);
+        btnUpdate.setDisable(false);
+        btnDelete.setDisable(false);
+    }
+
+    private void showAlert(Alert.AlertType type, String message) {
+        new Alert(type, message).show();
     }
 }

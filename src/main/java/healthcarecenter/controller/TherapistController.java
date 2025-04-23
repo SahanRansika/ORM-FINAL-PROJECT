@@ -158,10 +158,10 @@ public class TherapistController implements Initializable {
 
     private void refreshPage() throws SQLException,ClassNotFoundException {
         loadNextTherapistId();
-//        loadTableData();
-        btnSave.setDisable(true);
-        btnUpdate.setDisable(true);
-        btnDelete.setDisable(false);
+        loadTableData();
+        btnDelete.setDisable(true);
+        btnUpdate.setDisable(false);
+        btnSave.setDisable(false);
 
         txtName.clear();
         txtSpec.clear();
