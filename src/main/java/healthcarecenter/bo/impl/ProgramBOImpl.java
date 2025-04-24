@@ -3,9 +3,11 @@ package healthcarecenter.bo.impl;
 import healthcarecenter.bo.ProgramBO;
 import healthcarecenter.dao.DAOFactory;
 import healthcarecenter.dao.ProgramDAO;
-import healthcarecenter.dto.PatientDTO;
+import healthcarecenter.dao.TherapistDAO;
 import healthcarecenter.dto.ProgramDTO;
+import healthcarecenter.dto.TherapistDTO;
 import healthcarecenter.entity.Program;
+import healthcarecenter.entity.Therapist;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import java.util.List;
 public class ProgramBOImpl implements ProgramBO {
 
     ProgramDAO programDAO = (ProgramDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.PROGRAM);
+    TherapistDAO therapistDAO = (TherapistDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.THERAPIST);
 
     @Override
     public boolean save(ProgramDTO programDTO) throws SQLException,ClassNotFoundException{
@@ -65,5 +68,22 @@ public class ProgramBOImpl implements ProgramBO {
             ));
         }
         return dtoList;
+    }
+
+    @Override
+    public List<TherapistDTO> loadTherapistIds() throws SQLException, ClassNotFoundException {
+        List<Therapist> therapists = therapistDAO.getAll();
+        List<TherapistDTO> therapistDTOS = new ArrayList<>();
+        for (Therapist therapist : therapists){
+            therapistDTOS.add(new TherapistDTO(
+                    therapist.getTherapistId(),
+                    therapist.getName(),
+                    therapist.getSpec(),
+                    therapist.getYears(),
+                    therapist.getPhone(),
+                    therapist.getAssigned()
+            ));
+        }
+        return therapistDTOS;
     }
 }

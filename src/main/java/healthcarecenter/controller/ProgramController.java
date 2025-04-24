@@ -2,7 +2,9 @@ package healthcarecenter.controller;
 
 import healthcarecenter.bo.BOFactory;
 import healthcarecenter.bo.ProgramBO;
+import healthcarecenter.bo.TherapistBO;
 import healthcarecenter.dto.ProgramDTO;
+import healthcarecenter.dto.TherapistDTO;
 import healthcarecenter.dto.tm.ProgramTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -38,7 +41,9 @@ public class ProgramController implements Initializable {
     @FXML
     private ComboBox<String> cmbTherapistId;
 
-    private final ProgramBO programBO = (ProgramBO) BOFactory.getInstance().getBO(BOFactory.BOType.Program);
+    ProgramBO programBO = (ProgramBO) BOFactory.getInstance().getBO(BOFactory.BOType.Program);
+
+    TherapistBO therapistBO = (TherapistBO) BOFactory.getInstance().getBO(BOFactory.BOType.Therapist);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -105,8 +110,16 @@ public class ProgramController implements Initializable {
         }
     }
 
+    private void loadTherapistIds() throws SQLException,ClassNotFoundException{
+        List<TherapistDTO> therapistDTOList = programBO.loadTherapistIds();
+        for (TherapistDTO b : therapistDTOList){
+            cmbTherapistId.getItems().add(b.getTherapistId());
+        }
+    }
+
     private void refreshPage() throws SQLException, ClassNotFoundException {
         clearForm();
+        loadTherapistIds();
         loadTableData();
         loadNextProgramId();
     }
@@ -177,6 +190,14 @@ public class ProgramController implements Initializable {
         btnSave.setDisable(true);
         btnUpdate.setDisable(false);
         btnDelete.setDisable(false);
+    }
+
+    @FXML
+    void cmbTherapistIdOnAction(ActionEvent event) throws SQLException,ClassNotFoundException{
+        String selectedTherapistId = cmbTherapistId.getSelectionModel().getSelectedItem();
+        System.out.println("Selected Therapist id" + selectedTherapistId);
+        TherapistDTO therapistDTO = therapistBO.findById(selectedTherapistId);
+
     }
 
     private void showAlert(Alert.AlertType type, String message) {

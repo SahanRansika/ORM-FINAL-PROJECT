@@ -3,6 +3,7 @@ package healthcarecenter.bo;
 import healthcarecenter.dto.TherapistDTO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface TherapistBO extends SuperBO{
@@ -11,4 +12,6 @@ public interface TherapistBO extends SuperBO{
     boolean delete(String id) throws SQLException,ClassNotFoundException;
     String getNextTherapistId() throws SQLException,ClassNotFoundException;
     List<TherapistDTO> getAll() throws SQLException,ClassNotFoundException;
+    TherapistDTO findById(String id) throws SQLException, ClassNotFoundException;
+
 }

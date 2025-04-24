@@ -64,4 +64,19 @@ public class TherapistBOImpl implements TherapistBO {
         }
         return dtoList;
     }
+    @Override
+    public TherapistDTO findById(String id) throws SQLException, ClassNotFoundException {
+        Therapist therapist = therapistDAO.findById(id);
+        if (therapist != null) {
+            return new TherapistDTO(
+                    therapist.getTherapistId(),
+                    therapist.getName(),
+                    therapist.getSpec(),
+                    therapist.getYears(),
+                    therapist.getPhone(),
+                    therapist.getAssigned()
+            );
+        }
+        return null;
+    }
 }

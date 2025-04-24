@@ -52,7 +52,7 @@
             <Image url="@../images/Therapy-for-Men-1.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblProgram" layoutX="427.0" layoutY="91.0" onMouseClicked="#onTableClick" opacity="0.5" prefHeight="509.0" prefWidth="691.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
+      <TableView fx:id="tblProgram" layoutX="427.0" layoutY="112.0" onMouseClicked="#onTableClick" opacity="0.5" prefHeight="509.0" prefWidth="691.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
          <columns>
             <TableColumn fx:id="colProgramId" minWidth="0.0" prefWidth="84.80001831054688" style="-fx-background-color: white; -fx-border-color: black;" text="PROGRAM ID" />
             <TableColumn fx:id="colTherapistId" minWidth="0.0" prefWidth="91.199951171875" style="-fx-background-color: white; -fx-border-color: black;" text="THERAPIST ID" />
@@ -88,6 +88,6 @@
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <ComboBox fx:id="cmbTherapistId" layoutX="241.0" layoutY="152.0" prefWidth="150.0" />
+      <ComboBox fx:id="cmbTherapistId" layoutX="241.0" layoutY="152.0" onAction="#cmbTherapistIdOnAction" prefWidth="150.0" />
    </children>
 </AnchorPane>

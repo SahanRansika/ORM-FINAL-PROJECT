@@ -52,6 +52,7 @@ public class TherapistController implements Initializable {
 
     @FXML
     private TableView<TherapistTM> tblTherapist;
+
     @FXML
     private TableColumn<TherapistTM, String> colAssigned;
 
