@@ -127,4 +127,14 @@ public class PatientDAOImpl implements PatientDAO {
             }
         }
     }
+
+    @Override
+    public Patient findById(String id) throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        try {
+            return session.get(Patient.class, id);
+        } finally {
+            session.close();
+        }
+    }
 }

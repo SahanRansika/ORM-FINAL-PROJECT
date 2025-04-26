@@ -7,6 +7,7 @@ import healthcarecenter.dto.PatientDTO;
 import healthcarecenter.entity.Patient;
 
 import java.sql.SQLException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +16,13 @@ public class PatientBOImpl implements PatientBO {
 
     @Override
     public boolean save(PatientDTO patientDTO) throws SQLException, ClassNotFoundException {
+        Date birthDate = Date.valueOf(patientDTO.getBirth().toString());
         return patientDAO.save(new Patient(
                 patientDTO.getPatientId(),
                 patientDTO.getName(),
                 patientDTO.getAddress(),
                 patientDTO.getGender(),
-                patientDTO.getBirth(),
+                birthDate,
                 patientDTO.getPhone(),
                 patientDTO.getRegistrationDate()
         ));
@@ -28,12 +30,14 @@ public class PatientBOImpl implements PatientBO {
 
     @Override
     public boolean update(PatientDTO patientDTO) throws SQLException, ClassNotFoundException {
+        Date birthDate = Date.valueOf(patientDTO.getBirth().toString());
+
         return patientDAO.update(new Patient(
                 patientDTO.getPatientId(),
                 patientDTO.getName(),
                 patientDTO.getAddress(),
                 patientDTO.getGender(),
-                patientDTO.getBirth(),
+                birthDate,
                 patientDTO.getPhone(),
                 patientDTO.getRegistrationDate()
         ));
@@ -65,5 +69,22 @@ public class PatientBOImpl implements PatientBO {
             ));
         }
         return dtoList;
+    }
+
+    @Override
+    public PatientDTO findById(String id) throws SQLException, ClassNotFoundException {
+        Patient patient = patientDAO.findById(id);
+        if (patient != null) {
+            return new PatientDTO(
+                    patient.getPatientId(),
+                    patient.getName(),
+                    patient.getAddress(),
+                    patient.getGender(),
+                    patient.getBirth(),
+                    patient.getPhone(),
+                    patient.getRegistrationDate()
+            );
+        }
+        return null;
     }
 }

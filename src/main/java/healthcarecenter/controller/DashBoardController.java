@@ -10,6 +10,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 
+import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -121,6 +122,10 @@ public class DashBoardController implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,"FAILED TO LOAD PAGE...!").show();
         }
+
+    }
+    @FXML
+    void onClickTable(MouseEvent event) {
 
     }
 

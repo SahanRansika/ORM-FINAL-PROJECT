@@ -3,7 +3,7 @@ package healthcarecenter.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -18,28 +18,22 @@ public class PaymentController {
     private Button btnUpdate;
 
     @FXML
-    private TableColumn<?, ?> colAmount;
+    private ComboBox<?> cmbPaymentId;
 
     @FXML
-    private TableColumn<?, ?> colPayDate;
+    private TableColumn<?, ?> colAmount;
 
     @FXML
     private TableColumn<?, ?> colPaymentId;
 
     @FXML
-    private TableColumn<?, ?> colRId;
+    private TableColumn<?, ?> colProgramId;
 
     @FXML
     private TableColumn<?, ?> colSessionId;
 
     @FXML
-    private DatePicker datePayDate;
-
-    @FXML
     private Label lblAmount;
-
-    @FXML
-    private Label lblPayDate;
 
     @FXML
     private Label lblPaymentId;
@@ -54,10 +48,10 @@ public class PaymentController {
     private TableView<?> tblPayment;
 
     @FXML
-    private TextField txtAmount;
+    private TextField txtPayment;
 
     @FXML
-    private TextField txtRId;
+    private TextField txtProgramId;
 
     @FXML
     private TextField txtSessionId;

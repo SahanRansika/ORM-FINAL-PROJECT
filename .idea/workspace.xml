@@ -6,24 +6,88 @@
   <component name="ChangeListManager">
     <list default="true" id="35079ce0-694b-4ac9-b51c-a78ecd6b15e1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/PatientBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/PatientBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/ProgramBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/ProgramBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/TherapistBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/TherapistBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/RegistrationBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/RegistrationBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/SessionsBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/SessionsBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/impl/PatientBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/impl/PatientBOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/impl/ProgramBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/impl/ProgramBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/impl/TherapistBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/impl/TherapistBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/impl/RegistrationBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/impl/RegistrationBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/impl/SessionsBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/bo/impl/SessionsBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/DashBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/DashBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/PatientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/ProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/ProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/TherapistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/TherapistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/TherapistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/TherapistDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/impl/TherapistDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/impl/TherapistDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/program.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/program.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/SessionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/controller/SessionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/PatientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/PatientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/PaymentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/PaymentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/ProgramDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/ProgramDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/SessionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/SessionsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/impl/PatientDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/impl/PatientDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/impl/ProgramDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dao/impl/ProgramDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/PatientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/PatientDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/PaymentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/PaymentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/RegistrationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/RegistrationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/SessionsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/SessionsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/tm/PatientTM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/tm/PatientTM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/tm/PaymentTM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/tm/PaymentTM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/tm/SessionsTM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/dto/tm/SessionsTM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Sessions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Sessions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Therapist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healthcarecenter/entity/Therapist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/payment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/registration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/sessions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/sessions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/therapist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/therapist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/AppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/BOFactory$BOType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/BOFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/PatientBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/PatientBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/PaymentBO.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/ProgramBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/ProgramBO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/TherapistBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/TherapistBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/RegistrationBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/RegistrationBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/SessionsBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/SessionsBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/impl/PatientBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/impl/PatientBOImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/impl/ProgramBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/impl/ProgramBOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/impl/TherapistBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/impl/TherapistBOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/ProgramController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/ProgramController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/TherapistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/TherapistController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/TherapistDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/TherapistDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/impl/TherapistDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/impl/TherapistDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/program.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/program.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/impl/RegistrationBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/impl/RegistrationBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/impl/SessionsBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/bo/impl/SessionsBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/config/FactoryConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/DashBoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/DashBoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/PatientController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/ProgramController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/RegistrationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/SessionsController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/controller/TherapistController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/DAOFactory$DAOType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/DAOFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/PatientDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/PatientDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/PaymentDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/ProgramDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/ProgramDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/SessionsDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/impl/PatientDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/impl/PaymentDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/impl/ProgramDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/impl/RegistrationDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/impl/SessionsDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dao/impl/TherapistDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dto/PatientDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/dto/PatientDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dto/PaymentDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/dto/PaymentDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dto/SessionsDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/dto/SessionsDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dto/tm/PaymentTM.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/dto/tm/SessionsTM.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/entity/Payment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/entity/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/entity/Program.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/entity/Registration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/entity/Registration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/healthcarecenter/entity/Sessions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/healthcarecenter/entity/Sessions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/registration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sessions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sessions.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +98,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -209,11 +273,27 @@
       <workItem from="1745402866605" duration="3447000" />
       <workItem from="1745406355973" duration="6237000" />
       <workItem from="1745424258571" duration="9627000" />
-      <workItem from="1745463714374" duration="5855000" />
+      <workItem from="1745463714374" duration="7064000" />
+      <workItem from="1745480380368" duration="9965000" />
+      <workItem from="1745591332000" duration="368000" />
+      <workItem from="1745637995247" duration="6640000" />
+      <workItem from="1745646096547" duration="9869000" />
+      <workItem from="1745658750630" duration="4925000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

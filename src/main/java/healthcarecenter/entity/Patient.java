@@ -19,11 +19,11 @@ public class Patient {
     private String name;
     private String address;
     private String gender;
-    private String birth;
+    private Date birth;
     private String phone;
     private Date registrationDate;
 
-    public Patient(String patientId, String name, String address, String gender, String birth, String phone, Date registrationDate) {
+    public Patient(String patientId, String name, String address, String gender, Date birth, String phone, Date registrationDate) {
         this.patientId = patientId;
         this.name = name;
         this.address = address;

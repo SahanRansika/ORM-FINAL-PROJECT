@@ -31,12 +31,12 @@
             <Font name="Bauhaus 93" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnSession" layoutX="24.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnSessionOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="THERAPY SESSION" textFill="WHITE">
+      <Button fx:id="btnSession" layoutX="24.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnSessionOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="SESSION" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnProgram" layoutX="24.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnProgramOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="THERAPY PROGRAM" textFill="WHITE">
+      <Button fx:id="btnProgram" layoutX="24.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnProgramOnAction" prefHeight="74.0" prefWidth="179.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="PROGRAM" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="16.0" />
          </font>

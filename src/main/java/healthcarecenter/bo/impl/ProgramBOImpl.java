@@ -19,32 +19,41 @@ public class ProgramBOImpl implements ProgramBO {
     TherapistDAO therapistDAO = (TherapistDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.THERAPIST);
 
     @Override
-    public boolean save(ProgramDTO programDTO) throws SQLException,ClassNotFoundException{
-        boolean save = programDAO.save(new Program(
-                programDTO.getProgramId(),
-                programDTO.getTherapistId(),
-                programDTO.getName(),
-                programDTO.getDuration(),
-                programDTO.getCost(),
-                programDTO.getDescription()
-        ));
-        return save;
+    public boolean save(ProgramDTO programDTO) throws SQLException, ClassNotFoundException {
+        Therapist therapist = therapistDAO.findById(programDTO.getTherapistId());
+        if (therapist == null) {
+            return false;
+        }
+        Program program = new Program();
+        program.setProgramId(programDTO.getProgramId());
+        program.setName(programDTO.getName());
+        program.setDuration(programDTO.getDuration());
+        program.setCost(programDTO.getCost());
+        program.setDescription(programDTO.getDescription());
+        program.setTherapist(therapist);
+
+        return programDAO.save(program);
     }
 
     @Override
-    public boolean update(ProgramDTO programDTO) throws SQLException,ClassNotFoundException{
-        return programDAO.update(new Program(
-                programDTO.getProgramId(),
-                programDTO.getTherapistId(),
-                programDTO.getName(),
-                programDTO.getDuration(),
-                programDTO.getCost(),
-                programDTO.getDescription()
-        ));
+    public boolean update(ProgramDTO programDTO) throws SQLException, ClassNotFoundException {
+        Therapist therapist = therapistDAO.findById(programDTO.getTherapistId());
+        if (therapist == null) {
+            return false;
+        }
+        Program program = new Program();
+        program.setProgramId(programDTO.getProgramId());
+        program.setName(programDTO.getName());
+        program.setDuration(programDTO.getDuration());
+        program.setCost(programDTO.getCost());
+        program.setDescription(programDTO.getDescription());
+        program.setTherapist(therapist);
+
+        return programDAO.update(program);
     }
 
     @Override
-    public boolean delete(String id) throws SQLException,ClassNotFoundException{
+    public boolean delete(String id) throws SQLException, ClassNotFoundException {
         return programDAO.delete(id);
     }
 
@@ -60,7 +69,7 @@ public class ProgramBOImpl implements ProgramBO {
         for (Program program : programs) {
             dtoList.add(new ProgramDTO(
                     program.getProgramId(),
-                    program.getTherapistId(),
+                    program.getTherapist().getTherapistId(),
                     program.getName(),
                     program.getDuration(),
                     program.getCost(),
@@ -74,7 +83,7 @@ public class ProgramBOImpl implements ProgramBO {
     public List<TherapistDTO> loadTherapistIds() throws SQLException, ClassNotFoundException {
         List<Therapist> therapists = therapistDAO.getAll();
         List<TherapistDTO> therapistDTOS = new ArrayList<>();
-        for (Therapist therapist : therapists){
+        for (Therapist therapist : therapists) {
             therapistDTOS.add(new TherapistDTO(
                     therapist.getTherapistId(),
                     therapist.getName(),
@@ -85,5 +94,22 @@ public class ProgramBOImpl implements ProgramBO {
             ));
         }
         return therapistDTOS;
+    }
+
+    @Override
+    public ProgramDTO findById(String id) throws SQLException, ClassNotFoundException {
+        Program program = programDAO.findById(id);
+        if (program != null) {
+            return new ProgramDTO(
+                    program.getProgramId(),
+                    program.getTherapist().getTherapistId(),
+                    program.getName(),
+                    program.getDuration(),
+                    program.getCost(),
+                    program.getDescription()
+            );
+        }
+        return null;
+
     }
 }

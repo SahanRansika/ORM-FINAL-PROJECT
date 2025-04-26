@@ -31,20 +31,7 @@
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <ImageView fitHeight="477.0" fitWidth="1140.0" layoutX="402.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/360_F_319526449_XOvMGnNoLlPKUgVqPNscEhDsZvlmBSbY.jpg" />
-         </image>
-      </ImageView>
-      <TableView fx:id="tblRegistration" layoutX="400.0" layoutY="91.0" opacity="0.5" prefHeight="518.0" prefWidth="718.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
-         <columns>
-            <TableColumn fx:id="colRId" minWidth="0.0" prefWidth="156.80001831054688" style="-fx-background-color: white; -fx-border-color: black;" text="REGISTRATION ID" />
-            <TableColumn fx:id="colPatientId" minWidth="0.0" prefWidth="171.20001220703125" style="-fx-background-color: white; -fx-border-color: black;" text="PATIENT ID" />
-            <TableColumn fx:id="colProgramId" minWidth="0.0" prefWidth="167.199951171875" style="-fx-background-color: white; -fx-border-color: black;" text="PROGRAM ID" />
-            <TableColumn fx:id="colDate" minWidth="0.0" prefWidth="221.5999755859375" style="-fx-background-color: white; -fx-border-color: black;" text="DATE" />
-         </columns>
-      </TableView>
-      <AnchorPane layoutX="31.0" layoutY="396.0" prefHeight="222.0" prefWidth="319.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-color: black; -fx-border-radius: 20 0 20 0;">
+      <AnchorPane layoutX="712.0" layoutY="63.0" prefHeight="222.0" prefWidth="319.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-color: black; -fx-border-radius: 20 0 20 0;">
          <children>
             <ImageView fitHeight="168.0" fitWidth="238.0" layoutX="36.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -53,7 +40,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <VBox layoutX="100.0" layoutY="109.0" prefHeight="150.0" prefWidth="274.0">
+      <VBox layoutX="100.0" layoutY="109.0" prefHeight="150.0" prefWidth="218.0">
          <children>
             <HBox prefHeight="40.0" prefWidth="294.0">
                <children>
@@ -71,22 +58,22 @@
             </HBox>
             <HBox prefHeight="40.0" prefWidth="294.0">
                <children>
-                  <Label fx:id="lblPatientId" prefHeight="38.0" prefWidth="140.0" text="PATIENT ID">
+                  <Label fx:id="lblPatientId" prefHeight="38.0" prefWidth="107.0" text="PATIENT ID">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cmbPatientId" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbPatientId" onAction="#cmbPatientIdOnAction" prefHeight="26.0" prefWidth="102.0" />
                </children>
             </HBox>
-            <HBox prefHeight="40.0" prefWidth="294.0">
+            <HBox prefHeight="40.0" prefWidth="228.0">
                <children>
-                  <Label fx:id="lblProgramId" prefHeight="30.0" prefWidth="140.0" text="PROGRAM ID">
+                  <Label fx:id="lblProgramId" prefHeight="30.0" prefWidth="108.0" text="PROGRAM ID">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cmbProgramId" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbProgramId" onAction="#cmbProgramIdOnAction" prefHeight="26.0" prefWidth="101.0" />
                </children>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="271.0">
@@ -105,5 +92,33 @@
             </HBox>
          </children>
       </VBox>
+      <TableView fx:id="tblRegistration" layoutX="82.0" layoutY="361.0" prefHeight="290.0" prefWidth="892.0">
+        <columns>
+          <TableColumn fx:id="colRId" prefWidth="185.60000610351562" text="REGISTRATION ID" />
+          <TableColumn fx:id="colPatientId" prefWidth="220.0" text="PATIENT ID" />
+            <TableColumn fx:id="colProgramId" prefWidth="256.0" text="PROGRAM ID" />
+            <TableColumn fx:id="colDate" prefWidth="230.4000244140625" text="DATE" />
+        </columns>
+      </TableView>
+      <Label layoutX="361.0" layoutY="145.0" prefHeight="38.0" prefWidth="107.0" text="PATIENT NAME">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="361.0" layoutY="183.0" prefHeight="38.0" prefWidth="107.0" text="PROGRAM NAME">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPatientName" layoutX="491.0" layoutY="145.0" prefHeight="38.0" prefWidth="107.0" text="NAME">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblProgramName" layoutX="491.0" layoutY="183.0" prefHeight="38.0" prefWidth="107.0" text="NAME">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -112,6 +112,7 @@ public class PatientController implements Initializable {
     }
 
     private PatientDTO getPatientDTOFromInputs() {
+        // Ensure gender is selected
         RadioButton selectedRadio = (RadioButton) gender.getSelectedToggle();
         if (selectedRadio == null) {
             showAlert(Alert.AlertType.WARNING, "Please select a gender.");
@@ -123,14 +124,17 @@ public class PatientController implements Initializable {
             return null;
         }
 
+        // Convert birth LocalDate to java.sql.Date
+        Date birthDate = Date.valueOf(txtBirth.getValue());
+
         return new PatientDTO(
                 lblPatientId.getText(),
                 txtName.getText(),
                 txtAddress.getText(),
-                selectedRadio.getText(),
-                txtBirth.getValue().toString(),
+                selectedRadio.getText(), // Get the selected gender
+                birthDate, // Store the birth as java.sql.Date
                 txtPhone.getText(),
-                Date.valueOf(LocalDate.now())
+                Date.valueOf(LocalDate.now()) // Assuming current date as registration date
         );
     }
 
@@ -161,10 +165,11 @@ public class PatientController implements Initializable {
         lblPatientId.setText(selectedPatient.getPatientId());
         txtName.setText(selectedPatient.getName());
         txtAddress.setText(selectedPatient.getAddress());
-        txtBirth.setValue(LocalDate.parse(selectedPatient.getBirth()));
+        txtBirth.cancelEdit();
         txtPhone.setText(selectedPatient.getPhone());
         lbldate.setText(String.valueOf(selectedPatient.getRegistrationDate()));
 
+        // Set selected gender
         if ("Male".equalsIgnoreCase(selectedPatient.getGender())) {
             gender.selectToggle(radioBtnMale);
         } else if ("Female".equalsIgnoreCase(selectedPatient.getGender())) {

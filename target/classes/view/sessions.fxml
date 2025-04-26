@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,75 +19,25 @@
             <Font name="Bauhaus 93" size="37.0" />
          </font>
       </Label>
-      <Button fx:id="btnAddTable" layoutX="972.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnAddTableOnAction" prefHeight="28.0" prefWidth="97.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" text="ADD TABLE">
+      <Button fx:id="btnAddTable" layoutX="970.0" layoutY="359.0" mnemonicParsing="false" onAction="#btnAddTableOnAction" prefHeight="28.0" prefWidth="97.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20; -fx-border-radius: 20;" text="ADD TABLE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <ImageView fitHeight="148.0" fitWidth="155.0" layoutX="962.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/sessionimage2.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="148.0" fitWidth="155.0" layoutX="846.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/sessionimage2.jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="btnPlace" layoutX="960.0" layoutY="627.0" mnemonicParsing="false" onAction="#btnPlaceOnAction" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20; -fx-border-radius: 20;" text="PLACE SESSION" textFill="WHITE">
+      <Button fx:id="btnPlace" layoutX="960.0" layoutY="627.0" mnemonicParsing="false" onAction="#btnPlaceOnAction" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="PLACE SESSION" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Button>
-      <ImageView fitHeight="622.0" fitWidth="973.0" layoutX="20.0" layoutY="85.0" opacity="0.19" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Patient-paying-for-appt.jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="btnRefresh" layoutX="63.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: #23a9d1;" text="REFRESH" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="148.0" fitWidth="431.0" layoutX="63.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/GettyImages-1001713236-730x330.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="148.0" fitWidth="155.0" layoutX="390.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/sessionimage2.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="148.0" fitWidth="155.0" layoutX="504.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/sessionimage2.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="148.0" fitWidth="155.0" layoutX="621.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/sessionimage2.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="148.0" fitWidth="155.0" layoutX="739.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/sessionimage2.jpg" />
-         </image>
-      </ImageView>
-      <TableView fx:id="tblSession" layoutX="51.0" layoutY="453.0" opacity="0.71" prefHeight="162.0" prefWidth="1042.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
+      <TableView fx:id="tblSession" layoutX="35.0" layoutY="406.0" opacity="0.71" prefHeight="210.0" prefWidth="1042.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: blue; -fx-border-radius: 0 0 20 20;">
          <columns>
-            <TableColumn fx:id="colSessionId" minWidth="0.0" prefWidth="73.60000610351562" style="-fx-background-color: white; -fx-border-color: black;" text="SESSION ID" />
-            <TableColumn fx:id="colDuration" minWidth="0.0" prefWidth="123.20000457763672" style="-fx-background-color: white; -fx-border-color: black;" text="SESSION DURATION" />
-            <TableColumn fx:id="colPayment" minWidth="0.0" prefWidth="112.80001831054688" style="-fx-background-color: white; -fx-border-color: black;" text="PAYMENT" />
-            <TableColumn fx:id="colTherapistId" minWidth="0.0" prefWidth="87.19998168945312" style="-fx-background-color: white; -fx-border-color: black;" text="THERAPIST ID" />
-            <TableColumn fx:id="colProgramId" minWidth="0.0" prefWidth="82.4000244140625" style="-fx-background-color: white; -fx-border-color: black;" text="PROGRAM ID" />
-            <TableColumn fx:id="colPatientId" minWidth="0.0" prefWidth="82.4000244140625" style="-fx-background-color: white; -fx-border-color: black;" text="PATIENT ID" />
-            <TableColumn fx:id="colPlaceDate" minWidth="0.0" prefWidth="83.99993896484375" style="-fx-background-color: white; -fx-border-color: black;" text="PLACE DATE" />
-            <TableColumn fx:id="colSessionDate" minWidth="0.0" prefWidth="120.79998779296875" style="-fx-background-color: white; -fx-border-color: black;" text="SESSION DATE" />
-            <TableColumn fx:id="colStatus" minWidth="0.0" prefWidth="113.60003662109375" style="-fx-background-color: white; -fx-border-color: black;" text="PAYMENT STATUS" />
-            <TableColumn fx:id="colTotal" minWidth="0.0" prefWidth="159.199951171875" style="-fx-background-color: white; -fx-border-color: black;" text="TOTAL AMOUNT" />
+            <TableColumn fx:id="colProgramId" minWidth="0.0" prefWidth="155.9999656677246" style="-fx-background-color: white; -fx-border-color: blue;" text="PROGRAM ID" />
+            <TableColumn fx:id="colProgramName" minWidth="0.0" prefWidth="295.20005798339844" style="-fx-background-color: white; -fx-border-color: blue;" text="PROGRAM NAME" />
+            <TableColumn fx:id="colPayment" minWidth="0.0" prefWidth="225.60003662109375" style="-fx-background-color: white; -fx-border-color: blue;" text="PAYMENT" />
+            <TableColumn fx:id="colTotal" minWidth="0.0" prefWidth="218.4000244140625" style="-fx-background-color: white; -fx-border-color: blue;" text="TOTAL " />
+            <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="139.199951171875" style="-fx-background-color: white; -fx-border-color: blue;" text="ACTION" />
          </columns>
       </TableView>
-      <VBox layoutX="513.0" layoutY="72.0" prefHeight="302.0" prefWidth="452.0">
+      <VBox layoutX="513.0" layoutY="72.0" prefHeight="334.0" prefWidth="452.0">
          <children>
             <HBox prefHeight="36.0" prefWidth="286.0" />
             <HBox prefHeight="38.0" prefWidth="286.0">
@@ -98,41 +47,21 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Sdate" prefHeight="18.0" prefWidth="108.0" text="2099-01-01" textFill="#1b0589">
+                  <Label fx:id="sessionDate" prefHeight="18.0" prefWidth="108.0" text="2099-01-01" textFill="#1b0589">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-               </children>
-            </HBox>
-            <HBox prefHeight="42.0" prefWidth="286.0">
-               <children>
-                  <Label prefHeight="18.0" prefWidth="140.0" text="PAYMENT STATUS">
-                     <font>
-                        <Font name="Bauhaus 93" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtStatus" opacity="0.89" prefHeight="26.0" prefWidth="250.0" promptText="Enter Payment Status" />
-               </children>
-            </HBox>
-            <HBox prefHeight="37.0" prefWidth="286.0">
-               <children>
-                  <Label prefHeight="18.0" prefWidth="140.0" text="TOTAL AMOUNT">
-                     <font>
-                        <Font name="Bauhaus 93" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtTotal" opacity="0.89" prefHeight="26.0" prefWidth="250.0" promptText="Enter Total Amount" />
                </children>
             </HBox>
             <HBox prefHeight="38.0" prefWidth="286.0">
                <children>
-                  <Label prefHeight="18.0" prefWidth="140.0" text="THERAPIST NAME">
+                  <Label prefHeight="18.0" prefWidth="140.0" text="PATIENT NAME">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblTherapistName" text="NAME" textFill="#1b0589">
+                  <Label fx:id="lblPatientName" text="NAME" textFill="#1b0589">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
@@ -155,12 +84,26 @@
             </HBox>
             <HBox prefHeight="38.0" prefWidth="286.0">
                <children>
-                  <Label prefHeight="18.0" prefWidth="140.0" text="PATIENT NAME">
+                  <Label prefHeight="18.0" prefWidth="140.0" text="THERAPIST ID">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPatientName" text="NAME" textFill="#1b0589">
+                  <Label fx:id="lblTherapistId" text="ID" textFill="#1b0589">
+                     <font>
+                        <Font name="Bauhaus 93" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="127.0" prefHeight="38.0" prefWidth="286.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="140.0" text="PAYMENT">
+                     <font>
+                        <Font name="Bauhaus 93" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPayment" text="PAYMENT" textFill="#1b0589">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
@@ -169,9 +112,9 @@
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="63.0" layoutY="95.0" prefHeight="302.0" prefWidth="387.0">
+      <VBox layoutX="63.0" layoutY="107.0" prefHeight="154.0" prefWidth="387.0">
          <children>
-            <HBox fx:id="lblDuration" prefHeight="40.0" prefWidth="254.0">
+            <HBox prefHeight="40.0" prefWidth="254.0">
                <children>
                   <Label prefHeight="18.0" prefWidth="140.0" text="SESSION ID">
                      <font>
@@ -187,36 +130,12 @@
             </HBox>
             <HBox prefHeight="40.0" prefWidth="254.0">
                <children>
-                  <Label prefHeight="18.0" prefWidth="140.0" text="SESSION DURATION">
+                  <Label prefHeight="18.0" prefWidth="140.0" text="PATIENT ID">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtDuration" opacity="0.89" prefHeight="26.0" prefWidth="250.0" promptText="Enter Duration" />
-               </children>
-            </HBox>
-            <HBox prefHeight="40.0" prefWidth="254.0">
-               <children>
-                  <HBox prefHeight="40.0" prefWidth="394.0">
-                     <children>
-                        <Label prefHeight="18.0" prefWidth="140.0" text="PAYMENT">
-                           <font>
-                              <Font name="Bauhaus 93" size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtPayment" opacity="0.89" prefHeight="26.0" prefWidth="250.0" promptText="Enter Payment" />
-                     </children>
-                  </HBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="40.0" prefWidth="254.0">
-               <children>
-                  <Label prefHeight="18.0" prefWidth="140.0" text="THERAPIST ID">
-                     <font>
-                        <Font name="Bauhaus 93" size="14.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="cmbTherapistId" opacity="0.89" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbPatientId" opacity="0.89" prefWidth="150.0" />
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="254.0">
@@ -229,17 +148,21 @@
                   <ComboBox fx:id="cmbProgramId" opacity="0.89" prefWidth="150.0" />
                </children>
             </HBox>
-            <HBox prefHeight="40.0" prefWidth="254.0">
-               <children>
-                  <Label prefHeight="18.0" prefWidth="140.0" text="PATIENT ID">
-                     <font>
-                        <Font name="Bauhaus 93" size="14.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="cmbPatientId" opacity="0.89" prefWidth="150.0" />
-               </children>
-            </HBox>
          </children>
       </VBox>
+      <Button fx:id="btnRefresh" layoutX="63.0" layoutY="345.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: blue;" text="REFRESH" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="772.0" layoutY="73.0" prefHeight="222.0" prefWidth="319.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-color: blue; -fx-border-radius: 20 0 20 0;">
+         <children>
+            <ImageView fitHeight="168.0" fitWidth="238.0" layoutX="36.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Patient-paying-for-appt.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

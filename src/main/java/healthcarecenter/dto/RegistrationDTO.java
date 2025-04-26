@@ -12,4 +12,6 @@ public class RegistrationDTO {
     private String programId;
     private Date registrationDate;
 
+
+
 }

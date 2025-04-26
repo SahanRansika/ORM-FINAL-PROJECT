@@ -3,6 +3,7 @@ package healthcarecenter.dao.impl;
 import healthcarecenter.config.FactoryConfiguration;
 import healthcarecenter.dao.ProgramDAO;
 import healthcarecenter.entity.Program;
+import healthcarecenter.entity.Therapist;
 import javafx.scene.control.Alert;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -126,6 +127,16 @@ public class ProgramDAOImpl implements ProgramDAO {
             if (session != null && session.isOpen()) {
                 session.close();
             }
+        }
+    }
+
+    @Override
+    public Program findById(String id) throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        try {
+            return session.get(Program.class, id);
+        } finally {
+            session.close();
         }
     }
 }

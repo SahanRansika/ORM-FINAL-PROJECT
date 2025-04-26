@@ -1,130 +1,148 @@
 package healthcarecenter.controller;
 
 import healthcarecenter.bo.BOFactory;
-import healthcarecenter.bo.SessionsBO;
-import healthcarecenter.dto.tm.SessionsTM;
+import healthcarecenter.bo.PatientBO;
+import healthcarecenter.bo.ProgramBO;
+import healthcarecenter.dto.PatientDTO;
+import healthcarecenter.dto.ProgramDTO;
+import healthcarecenter.dto.tm.CartTM;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.SQLException;;
+import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class SessionsController {
-
-    @FXML
-    private Label Sdate;
+public class SessionsController implements Initializable {
 
     @FXML
-    private Button btnAddTable;
+    private Button btnAddTable, btnPlace, btnRefresh;
 
     @FXML
-    private Button btnPlace;
+    private ComboBox<String> cmbPatientId, cmbProgramId;
 
     @FXML
-    private Button btnRefresh;
+    private TableView<CartTM> tblSession;
 
     @FXML
-    private ComboBox<String> cmbPatientId;
+    private TableColumn<CartTM, String> colProgramId, colProgramName, colPayment, colTotal;
 
     @FXML
-    private ComboBox<String> cmbProgramId;
+    private TableColumn<CartTM, Button> colAction;
 
     @FXML
-    private ComboBox<String> cmbTherapistId;
+    private Label lblPatientName, lblProgramName, lblPayment, lblTherapistId, lblSessionId, sessionDate;
 
-    @FXML
-    private TableColumn<SessionsTM, String> colDuration;
+    ObservableList<CartTM> cartList = FXCollections.observableArrayList();
 
-    @FXML
-    private TableColumn<SessionsTM, String> colPatientId;
+    PatientBO patientBO = (PatientBO) BOFactory.getInstance().getBO(BOFactory.BOType.Patient);
+    ProgramBO programBO = (ProgramBO) BOFactory.getInstance().getBO(BOFactory.BOType.Program);
 
-    @FXML
-    private TableColumn<SessionsTM, String> colPayment;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colProgramId.setCellValueFactory(new PropertyValueFactory<>("programId"));
+        colProgramName.setCellValueFactory(new PropertyValueFactory<>("programName"));
+        colPayment.setCellValueFactory(new PropertyValueFactory<>("payment"));
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("removeBtn"));
 
-    @FXML
-    private TableColumn<SessionsTM, String> colPlaceDate;
+        tblSession.setItems(cartList);
 
-    @FXML
-    private TableColumn<SessionsTM, String> colProgramId;
+        sessionDate.setText(LocalDate.now().toString());
 
-    @FXML
-    private TableColumn<SessionsTM, String> colSessionDate;
+        try {
+            loadPatientIds();
+            loadProgramIds();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Error loading data").show();
+            e.printStackTrace();
+        }
 
-    @FXML
-    private TableColumn<SessionsTM, String> colSessionId;
+        cmbPatientId.setOnAction(e -> setPatientDetails());
+        cmbProgramId.setOnAction(e -> setProgramDetails());
+    }
 
-    @FXML
-    private TableColumn<SessionsTM, String> colStatus;
+    private void loadPatientIds() throws SQLException, ClassNotFoundException {
+        List<PatientDTO> patients = patientBO.getAll();
+        for (PatientDTO p : patients) {
+            cmbPatientId.getItems().add(p.getPatientId());
+        }
+    }
 
-    @FXML
-    private TableColumn<SessionsTM, String> colTherapistId;
+    private void loadProgramIds() throws SQLException, ClassNotFoundException {
+        List<ProgramDTO> programs = programBO.getAll();
+        for (ProgramDTO p : programs) {
+            cmbProgramId.getItems().add(p.getProgramId());
+        }
+    }
 
-    @FXML
-    private TableColumn<SessionsTM, String> colTotal;
+    private void setPatientDetails() {
+        String selectedId = cmbPatientId.getValue();
+        try {
+            PatientDTO patient = patientBO.findById(selectedId);
+            if (patient != null) {
+                lblPatientName.setText(patient.getName());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-    @FXML
-    private HBox lblDuration;
-
-    @FXML
-    private Label lblPatientName;
-
-    @FXML
-    private Label lblProgramName;
-
-    @FXML
-    private Label lblSession;
-
-    @FXML
-    private Label lblSessionId;
-
-    @FXML
-    private Label lblTherapistName;
-
-    @FXML
-    private TableView<SessionsTM> tblSession;
-
-    @FXML
-    private TextField txtDuration;
-
-    @FXML
-    private TextField txtPayment;
-
-    @FXML
-    private TextField txtStatus;
-
-    @FXML
-    private TextField txtTotal;
-
-    SessionsBO sessionsBO = (SessionsBO) BOFactory.getInstance().getBO(BOFactory.BOType.Sessions);
+    private void setProgramDetails() {
+        String selectedId = cmbProgramId.getValue();
+        try {
+            ProgramDTO program = programBO.findById(selectedId);
+            if (program != null) {
+                lblProgramName.setText(program.getName());
+                lblPayment.setText(program.getCost());
+                lblTherapistId.setText(program.getTherapistId());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void btnAddTableOnAction(ActionEvent event) {
+        String programId = cmbProgramId.getValue();
+        String programName = lblProgramName.getText();
+        String cost = lblPayment.getText();
 
+        Button btn = new Button("Remove");
+        CartTM cartTM = new CartTM(programId, programName, cost, cost, btn);
+
+        btn.setOnAction(e -> {
+            cartList.remove(cartTM);
+            tblSession.refresh();
+        });
+
+        cartList.add(cartTM);
+        tblSession.refresh();
     }
 
     @FXML
     void btnPlaceOnAction(ActionEvent event) {
-
+        new Alert(Alert.AlertType.INFORMATION, "Session placed successfully!").show();
+        // Actual saving logic will go here in the next step.
     }
 
     @FXML
     void btnRefreshOnAction(ActionEvent event) {
-
+        cmbPatientId.getSelectionModel().clearSelection();
+        cmbProgramId.getSelectionModel().clearSelection();
+        lblPatientName.setText("");
+        lblProgramName.setText("");
+        lblPayment.setText("");
+        lblTherapistId.setText("");
+        cartList.clear();
+        tblSession.refresh();
     }
-
-    public void loadNextSessionId() throws SQLException, ClassNotFoundException {
-        String nextPatientId = sessionsBO.getNextSessionId();
-        lblSessionId.setText(nextPatientId);
-    }
-
-    private void refreshPage() throws SQLException, ClassNotFoundException {
-        loadNextSessionId();
-    }
-
 }

@@ -5,26 +5,25 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 @Entity
-@Table(name = "payments")
+@Table(name = "payment")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Payment {
+
     @Id
-    @Column(name = "payment_Id")
+    @Column(name = "payment_id")
     private String paymentId;
-    private String registrationId;
-    private String sessionId;
-    private String payDate;
-    private String amount;
 
-    @OneToMany(mappedBy = "payments",cascade = CascadeType.ALL)
-    private List<Sessions> sessions;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "session_id", referencedColumnName = "session_id")
+    private Sessions session;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "program_id", referencedColumnName = "program_id")
+    private Program program;
 
-    @OneToMany(mappedBy = "payments",cascade = CascadeType.ALL)
-    private List<Registration> registration;
+    @Column(name = "payment_amount")
+    private double payment;
 }

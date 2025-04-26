@@ -31,9 +31,6 @@ public class Therapist {
         this.assigned = assigned;
     }
 
-    @OneToMany(mappedBy = "therapist",cascade = CascadeType.ALL)
-    private List<Sessions> sessions;
-
     @OneToOne(mappedBy = "therapist")
     private Program program;
 

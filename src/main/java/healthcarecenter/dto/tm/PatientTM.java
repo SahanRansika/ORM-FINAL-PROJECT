@@ -11,7 +11,7 @@ public class PatientTM {
     private String name;
     private String address;
     private String gender;
-    private String birth;
+    private java.sql.Date birth;
     private String phone;
     private Date registrationDate;
 }

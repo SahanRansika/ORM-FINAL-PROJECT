@@ -35,31 +35,26 @@
          </font></Label>
       <TextField fx:id="txtName" layoutX="241.0" layoutY="151.0" prefHeight="26.0" prefWidth="167.0" />
       <TextField fx:id="txtSpec" layoutX="241.0" layoutY="196.0" prefHeight="26.0" prefWidth="167.0" />
-      <Button fx:id="btnDelete" layoutX="95.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="706.0" layoutY="392.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <Button fx:id="btnUpdate" layoutX="199.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
+      <Button fx:id="btnUpdate" layoutX="816.0" layoutY="392.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <Button fx:id="btnSave" layoutX="302.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="SAVE" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="924.0" layoutY="392.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="SAVE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <ImageView fitHeight="477.0" fitWidth="691.0" layoutX="427.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/shutterstock_2480850611.jpg" />
-         </image>
-      </ImageView>
-      <TableView fx:id="tblTherapist" layoutX="427.0" layoutY="91.0" opacity="0.5" prefHeight="502.0" prefWidth="691.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
+      <TableView fx:id="tblTherapist" layoutX="80.0" layoutY="438.0" opacity="0.5" prefHeight="238.0" prefWidth="936.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
          <columns>
             <TableColumn fx:id="colTherapistId" minWidth="0.0" prefWidth="87.99996948242188" style="-fx-background-color: white; -fx-border-color: black;" text="THERAPIST ID" />
-            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="172.79998779296875" style="-fx-background-color: white; -fx-border-color: black;" text="NAME" />
-            <TableColumn fx:id="colSpec" minWidth="0.0" prefWidth="118.4000244140625" style="-fx-background-color: white; -fx-border-color: black;" text="SPECIALIZATION" />
-            <TableColumn fx:id="colYears" minWidth="0.0" prefWidth="116.0" style="-fx-background-color: white; -fx-border-color: black;" text="EXPERIENCE YEARS" />
-            <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="116.00006103515625" style="-fx-background-color: white; -fx-border-color: black;" text="PHONE NUMBER" />
-            <TableColumn fx:id="colAssigned" minWidth="0.0" prefWidth="81.5999755859375" style="-fx-background-color: white; -fx-border-color: black;" text="ASSIGNED PROGRAM" />
+            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="239.2000274658203" style="-fx-background-color: white; -fx-border-color: black;" text="NAME" />
+            <TableColumn fx:id="colSpec" minWidth="0.0" prefWidth="216.79998779296875" style="-fx-background-color: white; -fx-border-color: black;" text="SPECIALIZATION" />
+            <TableColumn fx:id="colYears" minWidth="0.0" prefWidth="117.5999755859375" style="-fx-background-color: white; -fx-border-color: black;" text="EXPERIENCE YEARS" />
+            <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="136.00006103515625" style="-fx-background-color: white; -fx-border-color: black;" text="PHONE NUMBER" />
+            <TableColumn fx:id="colAssigned" minWidth="0.0" prefWidth="135.19989013671875" style="-fx-background-color: white; -fx-border-color: black;" text="ASSIGNED PROGRAM" />
          </columns>
       </TableView>
       <TextField fx:id="txtYears" layoutX="241.0" layoutY="246.0" prefHeight="26.0" prefWidth="114.0" />
@@ -75,7 +70,7 @@
          </font>
       </Label>
       <TextField fx:id="txtAssigned" layoutX="241.0" layoutY="341.0" prefHeight="26.0" prefWidth="114.0" />
-      <AnchorPane layoutX="59.0" layoutY="470.0" prefHeight="188.0" prefWidth="298.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-color: black; -fx-border-radius: 20 0 20 0;">
+      <AnchorPane layoutX="649.0" layoutY="108.0" prefHeight="188.0" prefWidth="298.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-color: black; -fx-border-radius: 20 0 20 0;">
          <children>
             <ImageView fitHeight="168.0" fitWidth="238.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>

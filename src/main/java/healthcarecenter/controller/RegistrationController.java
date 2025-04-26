@@ -1,8 +1,13 @@
 package healthcarecenter.controller;
 
 import healthcarecenter.bo.BOFactory;
+import healthcarecenter.bo.PatientBO;
+import healthcarecenter.bo.ProgramBO;
 import healthcarecenter.bo.RegistrationBO;
+import healthcarecenter.dto.PatientDTO;
+import healthcarecenter.dto.ProgramDTO;
 import healthcarecenter.dto.RegistrationDTO;
+import healthcarecenter.dto.tm.ProgramTM;
 import healthcarecenter.dto.tm.RegistrationTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.Date;
@@ -59,7 +65,13 @@ public class RegistrationController implements Initializable {
     private Label lblPatientId;
 
     @FXML
+    private Label lblPatientName;
+
+    @FXML
     private Label lblProgramId;
+
+    @FXML
+    private Label lblProgramName;
 
     @FXML
     private Label lblRId;
@@ -71,6 +83,8 @@ public class RegistrationController implements Initializable {
     private TableView<RegistrationTM> tblRegistration;
 
     RegistrationBO registrationBO = (RegistrationBO) BOFactory.getInstance().getBO(BOFactory.BOType.Registration);
+    PatientBO patientBO = (PatientBO) BOFactory.getInstance().getBO(BOFactory.BOType.Patient);
+    ProgramBO programBO = (ProgramBO) BOFactory.getInstance().getBO(BOFactory.BOType.Program);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -137,12 +151,14 @@ public class RegistrationController implements Initializable {
     }
 
     private void refreshPage() throws SQLException,ClassNotFoundException {
+        loadPatientIds();
+        loadProgramIds();
         loadNextRegistrationId();
         loadTableData();
         Rdate.setText(LocalDate.now().toString());
-        btnRegister.setDisable(true);
+        btnRegister.setDisable(false);
         btnUpdate.setDisable(false);
-        btnDelete.setDisable(false);
+        btnDelete.setDisable(true);
 
         cmbPatientId.getSelectionModel().clearSelection();
         cmbProgramId.getSelectionModel().clearSelection();
@@ -150,21 +166,60 @@ public class RegistrationController implements Initializable {
 
     public void loadNextRegistrationId() throws SQLException, ClassNotFoundException {
         String nextRegistrationId = registrationBO.getNextRegistrationId();
-        lblProgramId.setText(nextRegistrationId);
+        lblRId.setText(nextRegistrationId);
     }
 
     private void loadTableData() throws SQLException, ClassNotFoundException {
-        List<RegistrationDTO> registrationDTOS = registrationBO.getAll();
-        ObservableList<RegistrationTM> registrationTMS = FXCollections.observableArrayList();
+        List<RegistrationDTO> registrationDTOList = registrationBO.getAll();
+        ObservableList<RegistrationTM> registrationTMList = FXCollections.observableArrayList();
 
-        for (RegistrationDTO registrationDTO : registrationDTOS) {
-            registrationTMS.add(new RegistrationTM(
-                    registrationDTO.getRegistrationId(),
-                    registrationDTO.getPatientId(),
-                    registrationDTO.getProgramId(),
-                    registrationDTO.getRegistrationDate()
+        for (RegistrationDTO dto : registrationDTOList) {
+            registrationTMList.add(new RegistrationTM(
+                    dto.getRegistrationId(),
+                    dto.getPatientId(),
+                    dto.getProgramId(),
+                    dto.getRegistrationDate()
             ));
         }
-        tblRegistration.setItems(registrationTMS);
+        tblRegistration.setItems(registrationTMList);
+    }
+
+    private void loadPatientIds() throws SQLException,ClassNotFoundException{
+        List<PatientDTO> patientDTOList = patientBO.getAll();
+        for (PatientDTO b : patientDTOList){
+            cmbPatientId.getItems().add(b.getPatientId());
+        }
+    }
+
+    private void loadProgramIds() throws SQLException,ClassNotFoundException{
+        List<ProgramDTO> programDTOList = programBO.getAll();
+        for (ProgramDTO b : programDTOList){
+            cmbProgramId.getItems().add(b.getProgramId());
+        }
+    }
+
+    @FXML
+    void cmbPatientIdOnAction(ActionEvent event) throws SQLException,ClassNotFoundException{
+        String selectedPatientId = cmbPatientId.getSelectionModel().getSelectedItem();
+        System.out.println("Selected Patient id" + selectedPatientId);
+        PatientDTO patientDTO = patientBO.findById(selectedPatientId);
+
+        if (patientDTO != null) {
+
+            lblPatientName.setText(patientDTO.getName());
+            System.out.println(patientDTO.getPatientId());
+        }
+    }
+
+    @FXML
+    void cmbProgramIdOnAction(ActionEvent event) throws SQLException,ClassNotFoundException{
+        String selectedProgramId = cmbProgramId.getSelectionModel().getSelectedItem();
+        System.out.println("Selected Program id" + selectedProgramId);
+        ProgramDTO programDTO = programBO.findById(selectedProgramId);
+        if (programDTO != null) {
+
+            lblProgramName.setText(programDTO.getName());
+            System.out.println(programDTO.getProgramId());
+        }
     }
 }
