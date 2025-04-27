@@ -7,7 +7,6 @@ import healthcarecenter.bo.RegistrationBO;
 import healthcarecenter.dto.PatientDTO;
 import healthcarecenter.dto.ProgramDTO;
 import healthcarecenter.dto.RegistrationDTO;
-import healthcarecenter.dto.tm.ProgramTM;
 import healthcarecenter.dto.tm.RegistrationTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -221,5 +220,46 @@ public class RegistrationController implements Initializable {
             lblProgramName.setText(programDTO.getName());
             System.out.println(programDTO.getProgramId());
         }
+    }
+
+    @FXML
+    void onClickTable(MouseEvent event) {
+        RegistrationTM selectedRegistration = tblRegistration.getSelectionModel().getSelectedItem();
+        if (selectedRegistration != null) {
+            lblRId.setText(selectedRegistration.getRegistrationId());
+            cmbPatientId.setValue(selectedRegistration.getPatientId());
+            cmbProgramId.setValue(selectedRegistration.getProgramId());
+            Rdate.setText(selectedRegistration.getRegistrationDate().toString());
+
+            try {
+                // Also update patient name and program name labels
+                PatientDTO patientDTO = patientBO.findById(selectedRegistration.getPatientId());
+                if (patientDTO != null) {
+                    lblPatientName.setText(patientDTO.getName());
+                }
+
+                ProgramDTO programDTO = programBO.findById(selectedRegistration.getProgramId());
+                if (programDTO != null) {
+                    lblProgramName.setText(programDTO.getName());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, "FAILED TO LOAD PATIENT OR PROGRAM DETAILS").show();
+            }
+
+            btnRegister.setDisable(true);   // disable Register button
+            btnUpdate.setDisable(false);    // enable Update
+            btnDelete.setDisable(false);    // enable Delete
+        }
+    }
+
+    @FXML
+    void btnRefreshOnAction(ActionEvent event) {
+        lblRId.getText();
+        cmbPatientId.getSelectionModel().clearSelection();
+        cmbProgramId.getSelectionModel().clearSelection();
+        lblPatientName.setText("");
+        lblProgramName.setText("");
+        Rdate.setText("");
     }
 }

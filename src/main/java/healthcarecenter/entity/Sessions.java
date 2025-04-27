@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -12,17 +15,15 @@ import lombok.NoArgsConstructor;
 @Table(name = "sessions")
 public class Sessions {
     @Id
-    @Column(name = "Session_Id")
+    @Column(name = "session_Id")
     private String sessionId;
-    private String patientId;
 
     @ManyToOne
+    @JoinColumn(name = "patient_Id", referencedColumnName = "patient_Id")
     private Patient patient;
 
-    @ManyToOne
-    private Program program;
+    private Date sessionDate;
 
 
-
-
+//    private List<Program> programs;
 }

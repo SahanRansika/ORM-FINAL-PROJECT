@@ -13,81 +13,99 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthcarecenter.controller.ProgramController">
    <children>
-      <Label fx:id="lblProgram" layoutX="82.0" layoutY="29.0" prefHeight="43.0" prefWidth="336.0" text="THERAPY PROGRAM" textFill="#150101">
-         <font>
-            <Font name="Bauhaus 93" size="37.0" />
-         </font>
-      </Label>
-      <Label layoutX="80.0" layoutY="112.0" text="PROGRAM ID">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font></Label>
-      <Label layoutX="80.0" layoutY="155.0" text="THERAPIST ID">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font></Label>
-      <Label layoutX="80.0" layoutY="202.0" text="NAME">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font></Label>
-      <Label layoutX="80.0" layoutY="250.0" text="DURATION">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font></Label>
-      <TextField fx:id="txtName" layoutX="241.0" layoutY="196.0" prefHeight="26.0" prefWidth="167.0" />
-      <Button fx:id="btnDelete" layoutX="95.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font></Button>
-      <Button fx:id="btnUpdate" layoutX="199.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font></Button>
-      <Button fx:id="btnSave" layoutX="302.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="SAVE" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font></Button>
-      <ImageView fitHeight="477.0" fitWidth="691.0" layoutX="427.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Therapy-for-Men-1.png" />
-         </image>
-      </ImageView>
-      <TableView fx:id="tblProgram" layoutX="427.0" layoutY="112.0" onMouseClicked="#onTableClick" opacity="0.5" prefHeight="509.0" prefWidth="691.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: black; -fx-border-radius: 0 0 20 20;">
-         <columns>
-            <TableColumn fx:id="colProgramId" minWidth="0.0" prefWidth="84.80001831054688" style="-fx-background-color: white; -fx-border-color: black;" text="PROGRAM ID" />
-            <TableColumn fx:id="colTherapistId" minWidth="0.0" prefWidth="91.199951171875" style="-fx-background-color: white; -fx-border-color: black;" text="THERAPIST ID" />
-            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="187.20001220703125" style="-fx-background-color: white; -fx-border-color: black;" text="NAME" />
-            <TableColumn fx:id="colDuration" minWidth="0.0" prefWidth="87.20001220703125" style="-fx-background-color: white; -fx-border-color: black;" text="DURATION" />
-            <TableColumn fx:id="colCost" minWidth="0.0" prefWidth="139.199951171875" style="-fx-background-color: white; -fx-border-color: black;" text="COST" />
-            <TableColumn fx:id="colDesc" minWidth="0.0" prefWidth="102.4000244140625" style="-fx-background-color: white; -fx-border-color: black;" text="DESCRIPTION" />
-         </columns>
-      </TableView>
-      <TextField fx:id="txtDuration" layoutX="241.0" layoutY="246.0" prefHeight="26.0" prefWidth="167.0" />
-      <Label layoutX="80.0" layoutY="300.0" text="COST">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtCost" layoutX="241.0" layoutY="296.0" prefHeight="26.0" prefWidth="167.0" />
-      <Label layoutX="80.0" layoutY="345.0" text="DESCRIPTION">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtDesc" layoutX="241.0" layoutY="341.0" prefHeight="26.0" prefWidth="167.0" />
-      <AnchorPane layoutX="59.0" layoutY="470.0" prefHeight="188.0" prefWidth="298.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-color: black; -fx-border-radius: 20 0 20 0;">
+      <AnchorPane layoutX="727.0" layoutY="91.0" prefHeight="276.0" prefWidth="379.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-color: blue; -fx-border-radius: 20 0 20 0;">
          <children>
-            <ImageView fitHeight="168.0" fitWidth="238.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="247.0" fitWidth="324.0" layoutX="30.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Therapy-for-Men-1.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <Label fx:id="lblProgramId" layoutX="241.0" layoutY="110.0" prefHeight="26.0" prefWidth="114.0" text="PR001" textFill="#1b0589">
+      <TableView fx:id="tblProgram" layoutX="57.0" layoutY="458.0" onMouseClicked="#onTableClick" prefHeight="218.0" prefWidth="1040.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: blue; -fx-border-radius: 0 0 20 20;">
+         <columns>
+            <TableColumn fx:id="colProgramId" minWidth="0.0" prefWidth="104.80001068115234" style="-fx-background-color: white; -fx-border-color: blue;" text="PROGRAM ID" />
+            <TableColumn fx:id="colTherapistId" minWidth="0.0" prefWidth="115.19998168945312" style="-fx-background-color: white; -fx-border-color: blue;" text="THERAPIST ID" />
+            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="224.79998779296875" style="-fx-background-color: white; -fx-border-color: blue;" text="NAME" />
+            <TableColumn fx:id="colDuration" minWidth="0.0" prefWidth="206.39987182617188" style="-fx-background-color: white; -fx-border-color: blue;" text="DURATION" />
+            <TableColumn fx:id="colCost" minWidth="0.0" prefWidth="220.800048828125" style="-fx-background-color: white; -fx-border-color: blue;" text="COST" />
+            <TableColumn fx:id="colDesc" minWidth="0.0" prefWidth="165.60003662109375" style="-fx-background-color: white; -fx-border-color: blue;" text="DESCRIPTION" />
+         </columns>
+      </TableView>
+      <Label layoutX="70.0" layoutY="132.0" text="PROGRAM ID">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
-         </font></Label>
-      <ComboBox fx:id="cmbTherapistId" layoutX="241.0" layoutY="152.0" onAction="#cmbTherapistIdOnAction" prefWidth="150.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="175.0" text="THERAPIST ID">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="222.0" text="NAME">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="270.0" text="DURATION">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtName" layoutX="201.0" layoutY="216.0" prefHeight="26.0" prefWidth="246.0" promptText="Enter Name" />
+      <TextField fx:id="txtDuration" layoutX="201.0" layoutY="266.0" prefHeight="26.0" prefWidth="246.0" promptText="Enter Duration" />
+      <Label layoutX="70.0" layoutY="320.0" text="COST">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCost" layoutX="201.0" layoutY="316.0" prefHeight="26.0" prefWidth="246.0" promptText="Enter Cost" />
+      <Label layoutX="70.0" layoutY="365.0" text="DESCRIPTION">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDesc" layoutX="201.0" layoutY="361.0" prefHeight="26.0" prefWidth="503.0" promptText="Enter Description" />
+      <Label fx:id="lblProgramId" layoutX="201.0" layoutY="130.0" prefHeight="26.0" prefWidth="114.0" text="PR001" textFill="BLUE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbTherapistId" layoutX="201.0" layoutY="172.0" onAction="#cmbTherapistIdOnAction" prefHeight="26.0" prefWidth="114.0" promptText="Select Id" />
+      <Button fx:id="btnDelete" layoutX="774.0" layoutY="418.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" layoutX="881.0" layoutY="418.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSave" layoutX="988.0" layoutY="418.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="SAVE" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblProgram" layoutX="102.0" layoutY="49.0" prefHeight="43.0" prefWidth="336.0" text="THERAPY PROGRAM" textFill="BLUE">
+         <font>
+            <Font name="Bauhaus 93" size="37.0" />
+         </font>
+      </Label>
+      <Label layoutX="407.0" layoutY="175.0" text="THERAPIST NAME">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTherapistName" layoutX="529.0" layoutY="174.0" prefHeight="18.0" prefWidth="182.0" text="NAME" textFill="BLUE">
+         <font>
+            <Font name="Berlin Sans FB" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnRefresh" layoutX="57.0" layoutY="418.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: blue;" text="REFRESH" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

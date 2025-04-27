@@ -2,7 +2,6 @@ package healthcarecenter.dto;
 
 import lombok.*;
 
-
 @AllArgsConstructor
 @Data
 public class PaymentDTO {
@@ -10,4 +9,3 @@ public class PaymentDTO {
     private String programId;
     private double payment;
 }
-

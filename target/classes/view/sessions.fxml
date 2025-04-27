@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthcarecenter.controller.SessionsController">
    <children>
-      <Label fx:id="lblSession" layoutX="82.0" layoutY="29.0" prefHeight="43.0" prefWidth="298.0" text="THERAPY SESSION">
+      <Label fx:id="lblSession" layoutX="82.0" layoutY="29.0" prefHeight="43.0" prefWidth="298.0" text="THERAPY SESSION" textFill="BLUE">
          <font>
             <Font name="Bauhaus 93" size="37.0" />
          </font>
@@ -28,7 +28,7 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Button>
-      <TableView fx:id="tblSession" layoutX="35.0" layoutY="406.0" opacity="0.71" prefHeight="210.0" prefWidth="1042.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: blue; -fx-border-radius: 0 0 20 20;">
+      <TableView fx:id="tblSession" layoutX="35.0" layoutY="406.0" onMouseClicked="#onClickTable" prefHeight="210.0" prefWidth="1042.0" style="-fx-background-radius: 0 0 20 20; -fx-border-color: blue; -fx-border-radius: 0 0 20 20;">
          <columns>
             <TableColumn fx:id="colProgramId" minWidth="0.0" prefWidth="155.9999656677246" style="-fx-background-color: white; -fx-border-color: blue;" text="PROGRAM ID" />
             <TableColumn fx:id="colProgramName" minWidth="0.0" prefWidth="295.20005798339844" style="-fx-background-color: white; -fx-border-color: blue;" text="PROGRAM NAME" />
@@ -37,7 +37,7 @@
             <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="139.199951171875" style="-fx-background-color: white; -fx-border-color: blue;" text="ACTION" />
          </columns>
       </TableView>
-      <VBox layoutX="513.0" layoutY="72.0" prefHeight="334.0" prefWidth="452.0">
+      <VBox layoutX="405.0" layoutY="71.0" prefHeight="334.0" prefWidth="452.0">
          <children>
             <HBox prefHeight="36.0" prefWidth="286.0" />
             <HBox prefHeight="38.0" prefWidth="286.0">
@@ -47,7 +47,7 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="sessionDate" prefHeight="18.0" prefWidth="108.0" text="2099-01-01" textFill="#1b0589">
+                  <Label fx:id="sessionDate" prefHeight="18.0" prefWidth="108.0" text="2099-01-01" textFill="BLUE">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
@@ -61,9 +61,9 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPatientName" text="NAME" textFill="#1b0589">
+                  <Label fx:id="lblPatientName" prefHeight="18.0" prefWidth="204.0" text="NAME" textFill="BLUE">
                      <font>
-                        <Font name="Bauhaus 93" size="14.0" />
+                        <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -75,9 +75,9 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblProgramName" text="NAME" textFill="#1b0589">
+                  <Label fx:id="lblProgramName" text="NAME" textFill="BLUE">
                      <font>
-                        <Font name="Bauhaus 93" size="14.0" />
+                        <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -89,9 +89,9 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblTherapistId" text="ID" textFill="#1b0589">
+                  <Label fx:id="lblTherapistId" text="ID" textFill="BLUE">
                      <font>
-                        <Font name="Bauhaus 93" size="14.0" />
+                        <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -103,9 +103,9 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPayment" text="PAYMENT" textFill="#1b0589">
+                  <Label fx:id="lblPayment" text="PAYMENT" textFill="BLUE">
                      <font>
-                        <Font name="Bauhaus 93" size="14.0" />
+                        <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -121,7 +121,7 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblSessionId" text="S001" textFill="#1b0589">
+                  <Label fx:id="lblSessionId" text="S001" textFill="BLUE">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
@@ -135,7 +135,7 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cmbPatientId" opacity="0.89" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbPatientId" opacity="0.89" prefWidth="150.0" promptText="Select Id" />
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="254.0">
@@ -145,7 +145,7 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cmbProgramId" opacity="0.89" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbProgramId" opacity="0.89" prefWidth="150.0" promptText="Select Id" />
                </children>
             </HBox>
          </children>

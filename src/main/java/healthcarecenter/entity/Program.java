@@ -16,20 +16,14 @@ public class Program {
     @Id
     @Column(name = "program_Id")
     private String programId;
-//    private String therapistId;
     private String name;
     private String duration;
     private String cost;
     private String description;
-
-
-    @OneToMany(mappedBy = "program",cascade = CascadeType.ALL)
-    private List<Sessions> sessions;
 
     @OneToOne
     private Therapist therapist;
 
     @OneToMany(mappedBy = "program",cascade = CascadeType.ALL)
     private List<Registration> registration;
-
 }
