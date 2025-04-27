@@ -3,8 +3,10 @@ package healthcarecenter.controller;
 import healthcarecenter.bo.BOFactory;
 import healthcarecenter.bo.PatientBO;
 import healthcarecenter.bo.ProgramBO;
+import healthcarecenter.bo.SessionsBO;
 import healthcarecenter.dto.PatientDTO;
 import healthcarecenter.dto.ProgramDTO;
+import healthcarecenter.dto.SessionsDTO;
 import healthcarecenter.dto.tm.CartTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,11 +15,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -45,6 +48,7 @@ public class SessionsController implements Initializable {
 
     PatientBO patientBO = (PatientBO) BOFactory.getInstance().getBO(BOFactory.BOType.Patient);
     ProgramBO programBO = (ProgramBO) BOFactory.getInstance().getBO(BOFactory.BOType.Program);
+    SessionsBO sessionsBO = (SessionsBO) BOFactory.getInstance().getBO(BOFactory.BOType.Sessions);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,6 +63,7 @@ public class SessionsController implements Initializable {
         sessionDate.setText(LocalDate.now().toString());
 
         try {
+            lblSessionId.setText(sessionsBO.getNextSessionId());
             loadPatientIds();
             loadProgramIds();
         } catch (Exception e) {
@@ -85,6 +90,7 @@ public class SessionsController implements Initializable {
     }
 
     private void setPatientDetails() {
+        if (cmbPatientId.getItems().isEmpty()) return;
         String selectedId = cmbPatientId.getValue();
         try {
             PatientDTO patient = patientBO.findById(selectedId);
@@ -97,6 +103,8 @@ public class SessionsController implements Initializable {
     }
 
     private void setProgramDetails() {
+        if (cmbProgramId.getItems().isEmpty()) return;
+
         String selectedId = cmbProgramId.getValue();
         try {
             ProgramDTO program = programBO.findById(selectedId);
@@ -130,8 +138,40 @@ public class SessionsController implements Initializable {
 
     @FXML
     void btnPlaceOnAction(ActionEvent event) {
-        new Alert(Alert.AlertType.INFORMATION, "Session placed successfully!").show();
-        // Actual saving logic will go here in the next step.
+            if (cmbPatientId.getValue() == null || cartList.isEmpty()) {
+                new Alert(Alert.AlertType.WARNING, "Please select a patient and at least one program.").show();
+                return;
+            }
+
+            try {
+                String sessionId = lblSessionId.getText();
+                Date date = Date.valueOf(sessionDate.getText());
+                String patientId = cmbPatientId.getValue();
+
+                System.out.println("Session ID: " + sessionId);
+                System.out.println("Patient ID: " + patientId);
+                System.out.println("Session Date: " + date);
+                System.out.println("Selected Programs:");
+
+
+                for (CartTM cart : cartList) {
+                    System.out.println("- Program ID: " + cart.getProgramId() + ", Payment: " + cart.getPayment());
+                }
+
+                SessionsDTO sessionsDTO = new SessionsDTO(sessionId , patientId , date);
+                boolean isSave = sessionsBO.save(sessionsDTO);
+
+                if (isSave) {
+                    new Alert(Alert.AlertType.INFORMATION, "Session placed successfully!").show();
+                    btnRefreshOnAction(event);
+                } else {
+                    new Alert(Alert.AlertType.INFORMATION, "Session failed to save!").show();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, "Failed to place session.").show();
+            }
     }
 
     @FXML
@@ -144,5 +184,18 @@ public class SessionsController implements Initializable {
         lblTherapistId.setText("");
         cartList.clear();
         tblSession.refresh();
+    }
+
+    @FXML
+    void onClickTable(MouseEvent event) {
+        CartTM selectedCartItem = tblSession.getSelectionModel().getSelectedItem();
+        if (selectedCartItem != null) {
+            cmbProgramId.setValue(selectedCartItem.getProgramId());
+            lblProgramName.setText(selectedCartItem.getProgramName());
+            lblPayment.setText(selectedCartItem.getPayment());
+            lblTherapistId.setText("");
+
+            tblSession.refresh();
+        }
     }
 }

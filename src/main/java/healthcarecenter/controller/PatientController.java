@@ -206,4 +206,9 @@ public class PatientController implements Initializable {
     private void showAlert(Alert.AlertType type, String message) {
         new Alert(type, message).show();
     }
+    
+    @FXML
+    void btnRefreshOnAction(ActionEvent event) {
+
+    }
 }

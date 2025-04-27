@@ -14,33 +14,33 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthcarecenter.controller.RegistrationController">
    <children>
-      <Label fx:id="lblRegistration" layoutX="82.0" layoutY="29.0" prefHeight="34.0" prefWidth="310.0" text="REGISTRATION">
+      <Label fx:id="lblRegistration" layoutX="82.0" layoutY="29.0" prefHeight="34.0" prefWidth="310.0" text="REGISTRATION" textFill="BLUE">
          <font>
             <Font name="Bauhaus 93" size="37.0" />
          </font>
       </Label>
-      <Button fx:id="btnDelete" layoutX="83.0" layoutY="298.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="272.0" layoutY="310.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <Button fx:id="btnUpdate" layoutX="184.0" layoutY="298.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
+      <Button fx:id="btnUpdate" layoutX="382.0" layoutY="310.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <Button fx:id="btnRegister" layoutX="284.0" layoutY="297.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="REGISTED" textFill="WHITE">
+      <Button fx:id="btnRegister" layoutX="491.0" layoutY="310.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="REGISTED" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <AnchorPane layoutX="712.0" layoutY="63.0" prefHeight="222.0" prefWidth="319.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-color: black; -fx-border-radius: 20 0 20 0;">
+      <AnchorPane layoutX="630.0" layoutY="63.0" prefHeight="268.0" prefWidth="402.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-color: blue; -fx-border-radius: 20 0 20 0;">
          <children>
-            <ImageView fitHeight="168.0" fitWidth="238.0" layoutX="36.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="220.0" fitWidth="354.0" layoutX="36.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/360_F_319526449_XOvMGnNoLlPKUgVqPNscEhDsZvlmBSbY.jpg" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <VBox layoutX="100.0" layoutY="109.0" prefHeight="150.0" prefWidth="218.0">
+      <VBox layoutX="31.0" layoutY="109.0" prefHeight="150.0" prefWidth="231.0">
          <children>
             <HBox prefHeight="40.0" prefWidth="294.0">
                <children>
@@ -49,7 +49,7 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblRId" prefHeight="34.0" prefWidth="46.0" text="R001" textFill="#1b0589">
+                  <Label fx:id="lblRId" prefHeight="34.0" prefWidth="46.0" text="R001" textFill="BLUE">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
@@ -63,7 +63,7 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cmbPatientId" onAction="#cmbPatientIdOnAction" prefHeight="26.0" prefWidth="102.0" />
+                  <ComboBox fx:id="cmbPatientId" onAction="#cmbPatientIdOnAction" prefHeight="26.0" prefWidth="102.0" promptText="Select Id" />
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="228.0">
@@ -73,7 +73,7 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cmbProgramId" onAction="#cmbProgramIdOnAction" prefHeight="26.0" prefWidth="101.0" />
+                  <ComboBox fx:id="cmbProgramId" onAction="#cmbProgramIdOnAction" prefHeight="26.0" prefWidth="101.0" promptText="Select Id" />
                </children>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="271.0">
@@ -83,7 +83,7 @@
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Rdate" prefHeight="18.0" prefWidth="108.0" text="2099-01-01" textFill="#1b0589">
+                  <Label fx:id="Rdate" prefHeight="18.0" prefWidth="108.0" text="2099-01-01" textFill="BLUE">
                      <font>
                         <Font name="Bauhaus 93" size="14.0" />
                      </font>
@@ -92,33 +92,38 @@
             </HBox>
          </children>
       </VBox>
-      <TableView fx:id="tblRegistration" layoutX="82.0" layoutY="361.0" prefHeight="290.0" prefWidth="892.0">
+      <Label layoutX="271.0" layoutY="145.0" prefHeight="38.0" prefWidth="107.0" text="PATIENT NAME">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="183.0" prefHeight="38.0" prefWidth="107.0" text="PROGRAM NAME">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPatientName" layoutX="401.0" layoutY="145.0" prefHeight="38.0" prefWidth="215.0" text="NAME" textFill="BLUE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblProgramName" layoutX="401.0" layoutY="183.0" prefHeight="38.0" prefWidth="215.0" text="NAME" textFill="BLUE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblRegistration" layoutX="72.0" layoutY="398.0" onMouseClicked="#onClickTable" prefHeight="258.0" prefWidth="918.0" style="-fx-background-color: white; -fx-border-color: blue;">
         <columns>
-          <TableColumn fx:id="colRId" prefWidth="185.60000610351562" text="REGISTRATION ID" />
-          <TableColumn fx:id="colPatientId" prefWidth="220.0" text="PATIENT ID" />
-            <TableColumn fx:id="colProgramId" prefWidth="256.0" text="PROGRAM ID" />
-            <TableColumn fx:id="colDate" prefWidth="230.4000244140625" text="DATE" />
+          <TableColumn fx:id="colRId" prefWidth="223.2000274658203" style="-fx-background-color: white; -fx-border-color: blue;" text="REGISTRATION ID" />
+          <TableColumn fx:id="colPatientId" prefWidth="247.20001220703125" style="-fx-background-color: white; -fx-border-color: blue;" text="PATIENT ID" />
+            <TableColumn fx:id="colProgramId" prefWidth="259.20001220703125" style="-fx-background-color: white; -fx-border-color: blue;" text="PROGRAM ID" />
+            <TableColumn fx:id="colDate" prefWidth="182.4000244140625" style="-fx-background-color: white; -fx-border-color: blue;" text="DATE" />
         </columns>
       </TableView>
-      <Label layoutX="361.0" layoutY="145.0" prefHeight="38.0" prefWidth="107.0" text="PATIENT NAME">
+      <Button fx:id="btnRefresh" layoutX="73.0" layoutY="355.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: blue;" text="REFRESH" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
-      </Label>
-      <Label layoutX="361.0" layoutY="183.0" prefHeight="38.0" prefWidth="107.0" text="PROGRAM NAME">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblPatientName" layoutX="491.0" layoutY="145.0" prefHeight="38.0" prefWidth="107.0" text="NAME">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblProgramName" layoutX="491.0" layoutY="183.0" prefHeight="38.0" prefWidth="107.0" text="NAME">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font>
-      </Label>
+      </Button>
    </children>
 </AnchorPane>

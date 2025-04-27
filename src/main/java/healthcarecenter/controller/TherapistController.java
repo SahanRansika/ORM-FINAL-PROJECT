@@ -11,10 +11,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -30,26 +30,10 @@ public class TherapistController implements Initializable {
     private Button btnUpdate;
 
     @FXML
-    private Label lblAssigned;
-
-    @FXML
-    private Label lblName;
-
-    @FXML
-    private Label lblPhone;
-
-    @FXML
-    private Label lblSpec;
-
-    @FXML
     private Label lblTherapist;
 
     @FXML
     private Label lblTherapistId;
-
-    @FXML
-    private Label lblYears;
-
     @FXML
     private TableView<TherapistTM> tblTherapist;
 
@@ -191,6 +175,29 @@ public class TherapistController implements Initializable {
             ));
         }
         tblTherapist.setItems(therapistTMS);
+    }
+
+    @FXML
+    void onClickTable(MouseEvent event) {
+        TherapistTM selectedTherapist = tblTherapist.getSelectionModel().getSelectedItem();
+        if (selectedTherapist != null) {
+            lblTherapistId.setText(selectedTherapist.getTherapistId());
+
+            txtName.setText(selectedTherapist.getName());
+            txtSpec.setText(selectedTherapist.getSpec());
+            txtYears.setText(selectedTherapist.getYears());
+            txtPhone.setText(selectedTherapist.getPhone());
+            txtAssigned.setText(selectedTherapist.getAssigned());
+
+            btnDelete.setDisable(false);
+            btnUpdate.setDisable(false);
+            btnSave.setDisable(true); // Disable save to avoid duplicate entries when updating
+        }
+    }
+
+    @FXML
+    void btnRefreshOnAction(ActionEvent event) {
+
     }
 }
 

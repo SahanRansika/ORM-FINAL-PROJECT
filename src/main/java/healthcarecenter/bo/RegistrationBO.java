@@ -3,7 +3,6 @@ package healthcarecenter.bo;
 import healthcarecenter.dto.PatientDTO;
 import healthcarecenter.dto.ProgramDTO;
 import healthcarecenter.dto.RegistrationDTO;
-import healthcarecenter.dto.TherapistDTO;
 
 import java.sql.SQLException;
 import java.util.List;

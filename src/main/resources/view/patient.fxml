@@ -15,7 +15,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthcarecenter.controller.PatientController">
    <children>
-      <Label fx:id="lblPatient" layoutX="82.0" layoutY="29.0" prefHeight="43.0" prefWidth="154.0" text="PATIENT">
+      <Label fx:id="lblPatient" layoutX="82.0" layoutY="29.0" prefHeight="43.0" prefWidth="154.0" text="PATIENT" textFill="BLUE">
          <font>
             <Font name="Bauhaus 93" size="37.0" />
          </font>
@@ -36,25 +36,20 @@
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <TextField fx:id="txtName" layoutX="241.0" layoutY="151.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
-      <TextField fx:id="txtAddress" layoutX="241.0" layoutY="196.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
-      <Button fx:id="btnDelete" layoutX="95.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
+      <TextField fx:id="txtName" layoutX="241.0" layoutY="151.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" promptText="Enter Name" />
+      <TextField fx:id="txtAddress" layoutX="241.0" layoutY="196.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" promptText="Enter Address" />
+      <Button fx:id="btnDelete" layoutX="754.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="DELETE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <Button fx:id="btnUpdate" layoutX="199.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
+      <Button fx:id="btnUpdate" layoutX="862.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <Button fx:id="btnSave" layoutX="302.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="SAVE" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="974.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #1b0589;" text="SAVE" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Button>
-      <ImageView fitHeight="396.0" fitWidth="685.0" layoutX="430.0" layoutY="129.0" opacity="0.31" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Nursing-Assistant-1200x675.jpg" />
-         </image>
-      </ImageView>
       <Label layoutX="80.0" layoutY="300.0" text="YEAR OF BIRTH">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
@@ -65,10 +60,10 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPhone" layoutX="241.0" layoutY="341.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" />
-      <AnchorPane layoutX="59.0" layoutY="504.0" prefHeight="170.0" prefWidth="298.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-radius: 20 0 20 0; -fx-border-color: black;">
+      <TextField fx:id="txtPhone" layoutX="241.0" layoutY="341.0" opacity="0.59" prefHeight="26.0" prefWidth="167.0" promptText="Enter Phone Number" />
+      <AnchorPane layoutX="513.0" layoutY="126.0" prefHeight="271.0" prefWidth="419.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 0; -fx-border-radius: 20 0 20 0; -fx-border-color: blue;">
          <children>
-            <ImageView fitHeight="168.0" fitWidth="238.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="271.0" fitWidth="364.0" layoutX="28.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Nursing-Assistant-1200x675.jpg" />
                </image>
@@ -80,27 +75,27 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblPatientId" layoutX="245.0" layoutY="113.0" prefHeight="18.0" prefWidth="108.0" text="P001" textFill="#1b0589">
+      <Label fx:id="lblPatientId" layoutX="245.0" layoutY="113.0" prefHeight="18.0" prefWidth="108.0" text="P001" textFill="BLUE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <Label fx:id="lbldate" layoutX="245.0" layoutY="388.0" prefHeight="18.0" prefWidth="108.0" text="2099-01-01" textFill="#1b0589">
+      <Label fx:id="lbldate" layoutX="245.0" layoutY="388.0" prefHeight="18.0" prefWidth="108.0" text="2099-01-01" textFill="BLUE">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Label>
-      <TableView fx:id="tblPatient" layoutX="426.0" layoutY="95.0" onMouseClicked="#onClickTable" opacity="0.33" prefHeight="454.0" prefWidth="691.0" style="-fx-background-radius: 0 0 20 20; -fx-border-radius: 0 0 20 20; -fx-border-color: brown;">
+      <TableView fx:id="tblPatient" layoutX="80.0" layoutY="489.0" onMouseClicked="#onClickTable" prefHeight="191.0" prefWidth="985.0" style="-fx-background-radius: 0 0 20 20; -fx-border-radius: 0 0 20 20; -fx-border-color: blue;">
          <columns>
-            <TableColumn fx:id="colPatientId" minWidth="0.0" prefWidth="73.60006713867188" style="-fx-background-color: white; -fx-border-color: brown;" text="PATIENT ID" />
-            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="99.99996948242188" style="-fx-background-color: white; -fx-border-color: brown;" text="NAME" />
-            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="100.79998779296875" style="-fx-background-color: white; -fx-border-color: brown;" text="ADDRESS" />
-            <TableColumn fx:id="colGender" minWidth="0.0" prefWidth="75.20001220703125" style="-fx-background-color: white; -fx-border-color: brown;" text="GENDER" />
-            <TableColumn fx:id="colBirth" minWidth="0.0" prefWidth="112.0" style="-fx-background-color: white; -fx-border-color: brown;" text="YEAR OF BIRTH" />
-            <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="120.0" style="-fx-background-color: white; -fx-border-color: brown;" text="PHONE NUMBER" />
-            <TableColumn fx:id="colRDate" minWidth="0.0" prefWidth="110.40007324218755" style="-fx-background-color: white; -fx-border-color: brown;" text="REGISTRATION DATE" />
+            <TableColumn fx:id="colPatientId" minWidth="0.0" prefWidth="95.19998168945312" style="-fx-background-color: white; -fx-border-color: blue;" text="PATIENT ID" />
+            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="182.39993286132812" style="-fx-background-color: white; -fx-border-color: blue;" text="NAME" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="188.800048828125" style="-fx-background-color: white; -fx-border-color: blue;" text="ADDRESS" />
+            <TableColumn fx:id="colGender" minWidth="0.0" prefWidth="100.7999267578125" style="-fx-background-color: white; -fx-border-color: blue;" text="GENDER" />
+            <TableColumn fx:id="colBirth" minWidth="0.0" prefWidth="151.20001220703125" style="-fx-background-color: white; -fx-border-color: blue;" text="YEAR OF BIRTH" />
+            <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="130.39996337890625" style="-fx-background-color: white; -fx-border-color: blue;" text="PHONE NUMBER" />
+            <TableColumn fx:id="colRDate" minWidth="0.0" prefWidth="136.800048828125" style="-fx-background-color: white; -fx-border-color: blue;" text="REGISTRATION DATE" />
          </columns>
       </TableView>
-      <RadioButton fx:id="radioBtnMale" layoutX="252.0" layoutY="244.0" mnemonicParsing="false" text="Male">
+      <RadioButton fx:id="radioBtnMale" layoutX="252.0" layoutY="244.0" mnemonicParsing="false" text="Male" textFill="BLUE">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
@@ -108,11 +103,16 @@
             <ToggleGroup fx:id="gender" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="radioBtnFemale" layoutX="317.0" layoutY="244.0" mnemonicParsing="false" text="Female" toggleGroup="$gender">
+      <RadioButton fx:id="radioBtnFemale" layoutX="317.0" layoutY="244.0" mnemonicParsing="false" text="Female" textFill="BLUE" toggleGroup="$gender">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </RadioButton>
-      <DatePicker fx:id="txtBirth" layoutX="235.0" layoutY="296.0" prefWidth="167.0" />
+      <DatePicker fx:id="txtBirth" layoutX="243.0" layoutY="296.0" prefWidth="167.0" promptText="Enter Birth Year" />
+      <Button fx:id="btnRefresh" layoutX="83.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: blue;" text="REFRESH" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

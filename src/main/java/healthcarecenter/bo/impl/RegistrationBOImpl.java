@@ -35,7 +35,7 @@ public class RegistrationBOImpl implements RegistrationBO {
         registration.setRegistrationId(registrationDTO.getRegistrationId());
         registration.setPatient(patient);
         registration.setProgram(program);
-        registration.setRegistrationDate(registrationDTO.getRegistrationDate()); // Already a java.sql.Date
+        registration.setRegistrationDate(registrationDTO.getRegistrationDate());
 
         return registrationDAO.save(registration);
     }

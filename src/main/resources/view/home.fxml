@@ -10,57 +10,61 @@
 
 <AnchorPane fx:id="ancLoad" prefHeight="700.0" prefWidth="1140.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthcarecenter.controller.HomeController">
    <children>
-      <ImageView fx:id="imgHome" fitHeight="687.0" fitWidth="1042.0" layoutX="91.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/wysiwyg-uploads_1580196666465-doctor.jpg" />
-         </image>
-      </ImageView>
       <HBox layoutX="200.0" layoutY="387.0" prefHeight="128.0" prefWidth="894.0">
          <children>
-            <Button fx:id="btnRegistration" mnemonicParsing="false" onAction="#btnRegistrationOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="REGISTRATION" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="24.0" />
-               </font>
-            </Button>
             <Label prefHeight="18.0" prefWidth="49.0" text=" " />
-            <Button fx:id="btnPatient" mnemonicParsing="false" onAction="#btnPatientOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="PATIENT" textFill="#fffcfc">
-               <font>
-                  <Font name="Bauhaus 93" size="24.0" />
-               </font>
-            </Button>
             <Label layoutX="256.0" layoutY="10.0" prefHeight="18.0" prefWidth="40.0" text="  " />
-            <Button fx:id="btnPayment" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="PAYMENT" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="24.0" />
-               </font>
-            </Button>
          </children>
       </HBox>
       <HBox layoutX="205.0" layoutY="545.0" prefHeight="128.0" prefWidth="894.0">
          <children>
-            <Button fx:id="btnProgram" mnemonicParsing="false" onAction="#btnProgramOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="THERAPY PROGRAM" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="24.0" />
-               </font>
-            </Button>
             <Label prefHeight="18.0" prefWidth="47.0" text=" " />
-            <Button fx:id="btnSession" mnemonicParsing="false" onAction="#btnSessionOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="THERAPY SESSION" textFill="#fffcfc">
-               <font>
-                  <Font name="Bauhaus 93" size="24.0" />
-               </font>
-            </Button>
             <Label layoutX="256.0" layoutY="10.0" prefHeight="18.0" prefWidth="46.0" text="  " />
-            <Button fx:id="btnTherapist" mnemonicParsing="false" onAction="#btnTherapistOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="THERAPIST" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="24.0" />
-               </font>
-            </Button>
          </children>
       </HBox>
-      <Label fx:id="lblHome" layoutX="142.0" layoutY="38.0" prefHeight="43.0" prefWidth="154.0" text="HOME" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="37.0" />
-         </font>
-      </Label>
+      <AnchorPane layoutX="83.0" layoutY="11.0" prefHeight="678.0" prefWidth="1047.0" style="-fx-border-color: blue; -fx-border-radius: 20 0 0 0; -fx-background-color: white; -fx-border-image-width: 20px;">
+         <children>
+            <ImageView fx:id="imgHome" fitHeight="658.0" fitWidth="1009.0" layoutX="31.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/wysiwyg-uploads_1580196666465-doctor.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnRegistration" layoutX="162.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnRegistrationOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="REGISTRATION" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnPatient" layoutX="468.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnPatientOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="PATIENT" textFill="#fffcfc">
+               <font>
+                  <Font name="Bauhaus 93" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnPayment" layoutX="772.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="PAYMENT" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnProgram" layoutX="162.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnProgramOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="THERAPY PROGRAM" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSession" layoutX="772.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnSessionOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="THERAPY SESSION" textFill="#fffcfc">
+               <font>
+                  <Font name="Bauhaus 93" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnTherapist" layoutX="468.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnTherapistOnAction" prefHeight="127.0" prefWidth="260.0" style="-fx-background-color: #1b0589; -fx-background-radius: 20;" text="THERAPIST" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="24.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblHome" layoutX="292.0" layoutY="36.0" prefHeight="43.0" prefWidth="154.0" text="HOME" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

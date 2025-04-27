@@ -29,7 +29,13 @@ public class ProgramController implements Initializable {
     private TableColumn<ProgramTM, String> colProgramId, colTherapistId, colName, colDuration, colCost, colDesc;
 
     @FXML
+    private Label lblProgram;
+
+    @FXML
     private Label lblProgramId;
+
+    @FXML
+    private Label lblTherapistName;
 
     @FXML
     private TableView<ProgramTM> tblProgram;
@@ -197,9 +203,22 @@ public class ProgramController implements Initializable {
         System.out.println("Selected Therapist id" + selectedTherapistId);
         TherapistDTO therapistDTO = therapistBO.findById(selectedTherapistId);
 
+        if (therapistDTO != null) {
+
+            lblTherapistName.setText(therapistDTO.getName());
+            System.out.println(therapistDTO.getName());
+        }
     }
 
     private void showAlert(Alert.AlertType type, String message) {
         new Alert(type, message).show();
     }
+
+    @FXML
+    void btnRefreshOnAction(ActionEvent event) {
+
+    }
+
 }
+
+
